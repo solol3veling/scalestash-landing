@@ -84,7 +84,7 @@ const Hero = () => {
                       <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                       <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                     </div>
-                    <div className="text-slate-600 text-sm font-medium">Scale-App Dashboard</div>
+                    <div className="text-slate-600 text-sm font-medium">ScaleStash Dashboard</div>
                   </div>
                 </div>
 

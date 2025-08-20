@@ -28,7 +28,7 @@ const FAQ = () => {
     },
     {
       question: "Do you offer custom integrations?",
-      answer: "Yes, our Enterprise plan includes custom integrations. We can connect Scale-App to your existing tools and workflows. Contact our sales team to discuss your specific needs."
+      answer: "Yes, our Enterprise plan includes custom integrations. We can connect ScaleStash to your existing tools and workflows. Contact our sales team to discuss your specific needs."
     },
     {
       question: "Is my data secure?",
@@ -48,7 +48,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300">
-            Everything you need to know about Scale-App
+            Everything you need to know about ScaleStash
           </p>
         </div>
 
@@ -90,7 +90,7 @@ const FAQ = () => {
               Still have questions?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Our team is here to help. Get in touch and we'll answer any questions you have about Scale-App.
+              Our team is here to help. Get in touch and we'll answer any questions you have about ScaleStash.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">

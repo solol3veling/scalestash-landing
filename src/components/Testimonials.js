@@ -3,7 +3,7 @@ import React from 'react';
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Scale-App transformed how we manage our social media. We've seen 300% growth in engagement across all platforms since switching.",
+      quote: "ScaleStash transformed how we manage our social media. We've seen 300% growth in engagement across all platforms since switching.",
       author: "Sarah Johnson",
       title: "Marketing Director at TechFlow",
       avatar: "SJ",
@@ -19,7 +19,7 @@ const Testimonials = () => {
       gradient: "from-purple-500 to-pink-500",
     },
     {
-      quote: "As an agency, Scale-App helps us manage 50+ client accounts effortlessly. The team features are a game-changer.",
+      quote: "As an agency, ScaleStash helps us manage 50+ client accounts effortlessly. The team features are a game-changer.",
       author: "Lisa Rodriguez",
       title: "Founder of Social Growth Agency",
       avatar: "LR",

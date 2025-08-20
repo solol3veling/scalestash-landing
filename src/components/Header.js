@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -14,29 +25,54 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 shadow-sm' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-container mx-auto px-4 lg:px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className={`flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? 'h-14' : 'h-16'
+        }`}>
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <span className="text-xl font-semibold text-slate-900 dark:text-white">Scale-App</span>
+          <div className="flex items-center">
+            <span className={`font-semibold tracking-tight transition-all duration-300 ${
+              isScrolled 
+                ? 'text-xl text-slate-900 dark:text-white' 
+                : 'text-2xl text-white'
+            }`} style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+              ScaleStash
+            </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+            <a href="#features" className={`font-medium transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}>
               Features
             </a>
-            <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+            <a href="#pricing" className={`font-medium transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}>
               Pricing
             </a>
-            <a href="#about" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+            <a href="#about" className={`font-medium transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}>
               About
             </a>
-            <a href="#contact" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+            <a href="#contact" className={`font-medium transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}>
               Contact
             </a>
           </nav>
@@ -46,7 +82,11 @@ const Header = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+              className={`p-2 transition-colors duration-200 ${
+                isScrolled 
+                  ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                  : 'text-white/80 hover:text-white'
+              }`}
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? (
@@ -60,10 +100,18 @@ const Header = () => {
               )}
             </button>
             
-            <button className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 font-medium">
+            <button className={`font-medium transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}>
               Sign In
             </button>
-            <button className="bg-primary hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200">
+            <button className={`font-medium px-4 py-2 rounded-lg transition-all duration-200 ${
+              isScrolled 
+                ? 'bg-primary hover:bg-primary-700 text-white' 
+                : 'bg-white text-blue-600 hover:bg-blue-50'
+            }`}>
               Get Started
             </button>
           </div>
@@ -71,7 +119,11 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+            className={`md:hidden p-2 transition-colors duration-200 ${
+              isScrolled 
+                ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                : 'text-white/80 hover:text-white'
+            }`}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -88,33 +140,69 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-slate-200 dark:border-slate-700">
+          <div className={`md:hidden py-4 border-t transition-colors duration-200 ${
+            isScrolled 
+              ? 'border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95' 
+              : 'border-white/20 bg-white/10 backdrop-blur-sm'
+          }`}>
             <nav className="flex flex-col space-y-4">
-              <a href="#features" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+              <a href="#features" className={`font-medium transition-colors duration-200 ${
+                isScrolled 
+                  ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                  : 'text-white/80 hover:text-white'
+              }`}>
                 Features
               </a>
-              <a href="#pricing" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+              <a href="#pricing" className={`font-medium transition-colors duration-200 ${
+                isScrolled 
+                  ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                  : 'text-white/80 hover:text-white'
+              }`}>
                 Pricing
               </a>
-              <a href="#about" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+              <a href="#about" className={`font-medium transition-colors duration-200 ${
+                isScrolled 
+                  ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                  : 'text-white/80 hover:text-white'
+              }`}>
                 About
               </a>
-              <a href="#contact" className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200">
+              <a href="#contact" className={`font-medium transition-colors duration-200 ${
+                isScrolled 
+                  ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                  : 'text-white/80 hover:text-white'
+              }`}>
                 Contact
               </a>
-              <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
+              <div className={`flex items-center justify-between pt-4 border-t transition-colors duration-200 ${
+                isScrolled 
+                  ? 'border-slate-200 dark:border-slate-700' 
+                  : 'border-white/20'
+              }`}>
                 <button
                   onClick={toggleDarkMode}
-                  className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
+                  className={`p-2 transition-colors duration-200 ${
+                    isScrolled 
+                      ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                      : 'text-white/80 hover:text-white'
+                  }`}
                   aria-label="Toggle dark mode"
                 >
                   {isDarkMode ? '☀️' : '🌙'}
                 </button>
                 <div className="flex space-x-3">
-                  <button className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-200 font-medium">
+                  <button className={`font-medium transition-colors duration-200 ${
+                    isScrolled 
+                      ? 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white' 
+                      : 'text-white/80 hover:text-white'
+                  }`}>
                     Sign In
                   </button>
-                  <button className="bg-primary hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200">
+                  <button className={`font-medium px-4 py-2 rounded-lg transition-all duration-200 ${
+                    isScrolled 
+                      ? 'bg-primary hover:bg-primary-700 text-white' 
+                      : 'bg-white text-blue-600 hover:bg-blue-50'
+                  }`}>
                     Get Started
                   </button>
                 </div>

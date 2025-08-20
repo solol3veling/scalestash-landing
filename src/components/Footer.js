@@ -82,11 +82,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">S</span>
-              </div>
-              <span className="text-xl font-semibold">Scale-App</span>
+            <div className="flex items-center mb-6">
+              <span className="text-xl font-semibold" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+                ScaleStash
+              </span>
             </div>
             <p className="text-slate-400 mb-6 leading-relaxed">
               Scale your social media presence across all platforms
@@ -94,7 +93,7 @@ const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-2 text-sm text-slate-400 mb-6">
-              <div>hello@scale-app.com</div>
+              <div>hello@scalestash.com</div>
               <div>+1 (555) 123-4567</div>
               <div>San Francisco, CA</div>
             </div>
@@ -140,7 +139,7 @@ const Footer = () => {
         <div className="mt-16 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm">
-              © 2024 Scale-App. All rights reserved.
+              © 2024 ScaleStash. All rights reserved.
             </div>
             
             <div className="flex space-x-6 text-sm">
