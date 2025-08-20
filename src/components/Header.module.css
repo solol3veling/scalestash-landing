@@ -1,0 +1,23 @@
+.header {
+  background-color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #e6ebf1;
+}
+
+.header nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  margin-left: 1.5rem;
+}
+
+.header nav ul li a {
+  color: #525f7f;
+  text-decoration: none;
+  font-weight: 600;
+}
