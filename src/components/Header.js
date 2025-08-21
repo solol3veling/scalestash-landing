@@ -22,14 +22,14 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className={`flex items-center justify-between transition-all duration-500 ${
-          isScrolled ? 'h-16' : 'h-20'
+          isScrolled ? 'h-12' : 'h-14'
         }`}>
           {/* Logo */}
           <div className="flex items-center">
             <span className={`font-medium transition-all duration-500 ${
               isScrolled 
-                ? 'text-xl text-white' 
-                : 'text-2xl text-white'
+                ? 'text-lg text-white' 
+                : 'text-xl text-white'
             }`} style={{ 
               fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               letterSpacing: '-0.02em'
@@ -59,8 +59,8 @@ const Header = () => {
             <button className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
               Sign In
             </button>
-            <button className="bg-white text-black font-medium px-6 py-2.5 rounded-full hover:bg-zinc-200 transition-all duration-300 transform hover:scale-105">
-              Get Started
+            <button className="bg-white text-black font-medium px-4 py-2 text-sm rounded-full hover:bg-zinc-200 transition-all duration-300 transform hover:scale-105">
+              Join Waitlist
             </button>
           </div>
 
