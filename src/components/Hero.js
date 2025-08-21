@@ -84,105 +84,191 @@ const Hero = () => {
 
           {/* Right Column - Post Flow Illustration */}
           <div className="relative hidden lg:block">
-            <div className="relative h-96">
+            <div className="relative h-[500px] w-full">
               {/* Animated posts falling down */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2">
-                <div className="flex flex-col space-y-4 animate-pulse">
+              <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+                <div className="flex flex-col space-y-6">
                   {[1, 2, 3].map((post, i) => (
-                    <div key={i} className={`bg-white/90 rounded-lg p-3 shadow-lg w-24 transform transition-all duration-1000 ${
+                    <div key={i} className={`bg-white/95 rounded-xl p-4 shadow-2xl w-32 transform transition-all duration-1000 ${
                       i === 0 ? 'animate-bounce delay-0' : 
-                      i === 1 ? 'animate-bounce delay-150' : 
-                      'animate-bounce delay-300'
-                    }`} style={{ animationDelay: `${i * 0.5}s` }}>
-                      <div className="w-full h-2 bg-zinc-700 rounded mb-2"></div>
-                      <div className="w-3/4 h-1.5 bg-zinc-400 rounded mb-1"></div>
-                      <div className="w-1/2 h-1.5 bg-zinc-400 rounded"></div>
+                      i === 1 ? 'animate-bounce delay-300' : 
+                      'animate-bounce delay-500'
+                    }`} style={{ animationDelay: `${i * 0.7}s` }}>
+                      <div className="w-full h-3 bg-zinc-700 rounded mb-3"></div>
+                      <div className="w-4/5 h-2 bg-zinc-400 rounded mb-2"></div>
+                      <div className="w-3/5 h-2 bg-zinc-400 rounded mb-2"></div>
+                      <div className="w-2/3 h-2 bg-zinc-300 rounded"></div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Stacked Social Media Buckets */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end space-x-4">
-                {/* Instagram Stack */}
-                <div className="flex flex-col space-y-2">
-                  <div className="text-center mb-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-1">
-                      <span className="text-white text-xs font-bold">IG</span>
+              {/* Zigzag Stacked Social Media Cards */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <div className="relative">
+                  {/* Instagram Card - Top */}
+                  <div className="absolute -top-8 left-12 transform -translate-x-1/2 rotate-3 z-40">
+                    <div className="w-28 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl shadow-2xl border border-purple-400/30 overflow-hidden">
+                      <div className="p-3 h-full flex flex-col justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                            <span className="text-purple-600 text-xs font-bold">IG</span>
+                          </div>
+                          <div className="text-white text-xs font-medium">Instagram</div>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="w-full h-1.5 bg-white/30 rounded animate-pulse"></div>
+                          <div className="w-3/4 h-1.5 bg-white/30 rounded animate-pulse delay-100"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  {[1, 2, 3].map((card, i) => (
-                    <div key={i} className={`w-20 h-12 rounded-lg border-2 border-purple-500/30 transition-all duration-500 ${
-                      i < 2 ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20' : 'bg-zinc-900/50'
-                    }`} style={{ transform: `translateY(-${i * 2}px)` }}>
-                      {i < 2 && <div className="w-full h-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg animate-pulse"></div>}
-                    </div>
-                  ))}
-                </div>
 
-                {/* Twitter/X Stack */}
-                <div className="flex flex-col space-y-2">
-                  <div className="text-center mb-2">
-                    <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center mx-auto mb-1 border border-white/20">
-                      <span className="text-white text-xs font-bold">𝕏</span>
+                  {/* Twitter/X Card - Second */}
+                  <div className="absolute -top-4 -left-8 transform -translate-x-1/2 -rotate-2 z-30">
+                    <div className="w-28 h-20 bg-black rounded-xl shadow-2xl border border-white/20 overflow-hidden">
+                      <div className="p-3 h-full flex flex-col justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                            <span className="text-black text-xs font-bold">𝕏</span>
+                          </div>
+                          <div className="text-white text-xs font-medium">Twitter</div>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="w-full h-1.5 bg-white/30 rounded animate-pulse delay-200"></div>
+                          <div className="w-4/5 h-1.5 bg-white/30 rounded animate-pulse delay-300"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  {[1, 2, 3, 4].map((card, i) => (
-                    <div key={i} className={`w-20 h-12 rounded-lg border-2 border-white/30 transition-all duration-500 ${
-                      i < 3 ? 'bg-white/10' : 'bg-zinc-900/50'
-                    }`} style={{ transform: `translateY(-${i * 2}px)` }}>
-                      {i < 3 && <div className="w-full h-full bg-white/5 rounded-lg animate-pulse"></div>}
-                    </div>
-                  ))}
-                </div>
 
-                {/* LinkedIn Stack */}
-                <div className="flex flex-col space-y-2">
-                  <div className="text-center mb-2">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-1">
-                      <span className="text-white text-xs font-bold">in</span>
+                  {/* LinkedIn Card - Third */}
+                  <div className="absolute top-0 left-16 transform -translate-x-1/2 rotate-1 z-20">
+                    <div className="w-28 h-20 bg-blue-600 rounded-xl shadow-2xl border border-blue-400/30 overflow-hidden">
+                      <div className="p-3 h-full flex flex-col justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                            <span className="text-blue-600 text-xs font-bold">in</span>
+                          </div>
+                          <div className="text-white text-xs font-medium">LinkedIn</div>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="w-full h-1.5 bg-white/30 rounded animate-pulse delay-400"></div>
+                          <div className="w-2/3 h-1.5 bg-white/30 rounded animate-pulse delay-500"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  {[1, 2].map((card, i) => (
-                    <div key={i} className={`w-20 h-12 rounded-lg border-2 border-blue-600/30 transition-all duration-500 ${
-                      i < 1 ? 'bg-blue-600/20' : 'bg-zinc-900/50'
-                    }`} style={{ transform: `translateY(-${i * 2}px)` }}>
-                      {i < 1 && <div className="w-full h-full bg-blue-600/10 rounded-lg animate-pulse"></div>}
-                    </div>
-                  ))}
-                </div>
 
-                {/* Facebook Stack */}
-                <div className="flex flex-col space-y-2">
-                  <div className="text-center mb-2">
-                    <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-1">
-                      <span className="text-white text-xs font-bold">f</span>
+                  {/* Facebook Card - Bottom */}
+                  <div className="absolute top-4 -left-4 transform -translate-x-1/2 -rotate-3 z-10">
+                    <div className="w-28 h-20 bg-blue-500 rounded-xl shadow-2xl border border-blue-300/30 overflow-hidden">
+                      <div className="p-3 h-full flex flex-col justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                            <span className="text-blue-500 text-xs font-bold">f</span>
+                          </div>
+                          <div className="text-white text-xs font-medium">Facebook</div>
+                        </div>
+                        <div className="space-y-1">
+                          <div className="w-full h-1.5 bg-white/30 rounded animate-pulse delay-600"></div>
+                          <div className="w-5/6 h-1.5 bg-white/30 rounded animate-pulse delay-700"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  {[1, 2, 3].map((card, i) => (
-                    <div key={i} className={`w-20 h-12 rounded-lg border-2 border-blue-500/30 transition-all duration-500 ${
-                      i < 2 ? 'bg-blue-500/20' : 'bg-zinc-900/50'
-                    }`} style={{ transform: `translateY(-${i * 2}px)` }}>
-                      {i < 2 && <div className="w-full h-full bg-blue-500/10 rounded-lg animate-pulse"></div>}
-                    </div>
-                  ))}
                 </div>
               </div>
 
-              {/* Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: -1 }}>
+              {/* Animated Connection Lines */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
                 <defs>
-                  <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#6b7280', stopOpacity: 0.8 }} />
-                    <stop offset="100%" style={{ stopColor: '#6b7280', stopOpacity: 0.2 }} />
+                  <linearGradient id="flowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.8 }} />
+                    <stop offset="50%" style={{ stopColor: '#06b6d4', stopOpacity: 0.6 }} />
+                    <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
                   </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
                 </defs>
-                {/* Dotted lines from posts to buckets */}
-                <path d="M 200 60 Q 80 150 60 280" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" fill="none" className="animate-pulse" />
-                <path d="M 200 60 Q 140 150 140 280" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" fill="none" className="animate-pulse" />
-                <path d="M 200 60 Q 200 150 220 280" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" fill="none" className="animate-pulse" />
-                <path d="M 200 60 Q 260 150 300 280" stroke="url(#connectionGradient)" strokeWidth="2" strokeDasharray="5,5" fill="none" className="animate-pulse" />
+                
+                {/* Animated dotted paths from posts to cards */}
+                <g className="animate-pulse">
+                  {/* To Instagram */}
+                  <path 
+                    d="M 240 120 Q 280 200 260 320" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="3" 
+                    strokeDasharray="8,4" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    className="animate-pulse"
+                    style={{ 
+                      strokeDashoffset: '24',
+                      animation: 'dash 3s linear infinite, pulse 2s ease-in-out infinite' 
+                    }}
+                  />
+                  
+                  {/* To Twitter */}
+                  <path 
+                    d="M 240 140 Q 180 220 160 340" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="3" 
+                    strokeDasharray="8,4" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    className="animate-pulse"
+                    style={{ 
+                      strokeDashoffset: '24',
+                      animation: 'dash 3s linear infinite 0.5s, pulse 2s ease-in-out infinite 0.5s' 
+                    }}
+                  />
+                  
+                  {/* To LinkedIn */}
+                  <path 
+                    d="M 240 160 Q 300 240 280 360" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="3" 
+                    strokeDasharray="8,4" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    className="animate-pulse"
+                    style={{ 
+                      strokeDashoffset: '24',
+                      animation: 'dash 3s linear infinite 1s, pulse 2s ease-in-out infinite 1s' 
+                    }}
+                  />
+                  
+                  {/* To Facebook */}
+                  <path 
+                    d="M 240 180 Q 160 260 170 380" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="3" 
+                    strokeDasharray="8,4" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    className="animate-pulse"
+                    style={{ 
+                      strokeDashoffset: '24',
+                      animation: 'dash 3s linear infinite 1.5s, pulse 2s ease-in-out infinite 1.5s' 
+                    }}
+                  />
+                </g>
               </svg>
+
+              {/* CSS Animation Keyframes */}
+              <style jsx>{`
+                @keyframes dash {
+                  to {
+                    stroke-dashoffset: 0;
+                  }
+                }
+              `}</style>
             </div>
           </div>
         </div>
