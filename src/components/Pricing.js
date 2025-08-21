@@ -4,164 +4,131 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Starter',
-      price: '$9',
-      period: 'month',
-      yearlyPrice: '$90',
-      description: 'Perfect for individual creators and small businesses',
-      popular: false,
+      price: '$12',
+      description: 'Perfect for individual creators',
       features: [
-        'Connect up to 5 social accounts',
-        'Schedule up to 100 posts/month',
-        'Basic analytics dashboard',
+        '5 social accounts',
+        '100 posts/month',
+        'Basic analytics',
         'Content calendar',
-        'Email support',
-        'Mobile app access',
-      ],
-      buttonText: 'Start Free Trial',
-      buttonStyle: 'bg-primary hover:bg-primary-700 text-white',
+        'Email support'
+      ]
     },
     {
-      name: 'Professional',
+      name: 'Pro',
       price: '$29',
-      period: 'month',
-      yearlyPrice: '$290',
-      description: 'Ideal for growing businesses and agencies',
+      description: 'Ideal for growing businesses',
       popular: true,
       features: [
-        'Connect up to 25 social accounts',
-        'Unlimited scheduled posts',
-        'Advanced analytics & reporting',
-        'Team collaboration (up to 5 users)',
+        '25 social accounts',
+        'Unlimited posts',
+        'Advanced analytics',
+        'Team collaboration (5 users)',
         'AI content suggestions',
-        'Priority support',
-        'White-label reports',
-        'Bulk upload & scheduling',
-      ],
-      buttonText: 'Start Free Trial',
-      buttonStyle: 'bg-gradient-primary text-white hover:opacity-90',
+        'Priority support'
+      ]
     },
     {
       name: 'Enterprise',
-      price: '$99',
-      period: 'month',
-      yearlyPrice: '$990',
-      description: 'For large teams and enterprises',
-      popular: false,
+      price: 'Custom',
+      description: 'For large teams and agencies',
       features: [
-        'Unlimited social accounts',
+        'Unlimited accounts',
         'Unlimited team members',
-        'Custom analytics dashboards',
+        'Custom analytics',
         'API access',
-        'Advanced automation workflows',
-        'Dedicated account manager',
-        'Custom integrations',
-        'SLA guarantee',
-        'Phone support',
-      ],
-      buttonText: 'Contact Sales',
-      buttonStyle: 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100',
-    },
+        'Dedicated manager',
+        'Phone support'
+      ]
+    }
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-white dark:bg-slate-900">
-      <div className="max-w-container mx-auto px-4 lg:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-            Simple, Transparent Pricing
+    <section id="pricing" className="py-24 bg-black">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            Simple pricing
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-            Choose the plan that fits your needs. All plans include a 14-day free trial.
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            Choose the plan that fits your needs. Start free, upgrade when ready.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`relative bg-zinc-900/50 backdrop-blur-sm border rounded-2xl p-8 transition-all duration-500 hover:bg-zinc-900/80 ${
                 plan.popular
-                  ? 'border-primary scale-105 ring-4 ring-primary/10'
-                  : 'border-slate-200 dark:border-slate-700'
+                  ? 'border-blue-500 scale-105'
+                  : 'border-zinc-800 hover:border-zinc-700'
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-primary text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
-                    Most Popular
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    Most popular
                   </span>
                 </div>
               )}
 
-              <div className="p-8">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6">
-                    {plan.description}
-                  </p>
-                  
-                  <div className="mb-4">
-                    <div className="flex items-center justify-center">
-                      <span className="text-5xl font-bold text-slate-900 dark:text-white">
-                        {plan.price}
-                      </span>
-                      <span className="text-slate-600 dark:text-slate-400 ml-2">
-                        /{plan.period}
-                      </span>
-                    </div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400 mt-2">
-                      or {plan.yearlyPrice}/year (Save 17%)
-                    </div>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {plan.name}
+                </h3>
+                <p className="text-zinc-400 mb-6">
+                  {plan.description}
+                </p>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl font-bold text-white">
+                      {plan.price}
+                    </span>
+                    {plan.price !== 'Custom' && (
+                      <span className="text-zinc-400 ml-2">/month</span>
+                    )}
                   </div>
                 </div>
-
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-5 h-5 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mt-0.5">
-                        <svg className="w-3 h-3 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <span className="text-slate-600 dark:text-slate-300">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 ${plan.buttonStyle}`}
-                >
-                  {plan.buttonText}
-                </button>
               </div>
+
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 bg-zinc-800 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="text-zinc-300">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <button className={`w-full py-4 px-6 rounded-full font-semibold transition-all duration-300 ${
+                plan.popular 
+                  ? 'bg-white text-black hover:bg-zinc-200' 
+                  : 'bg-zinc-800 text-white hover:bg-zinc-700'
+              }`}>
+                {plan.price === 'Custom' ? 'Contact sales' : 'Start free trial'}
+              </button>
             </div>
           ))}
         </div>
 
-        {/* Additional trust signals */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8 bg-slate-50 dark:bg-slate-800 px-8 py-6 rounded-2xl">
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-slate-600 dark:text-slate-300 font-medium">14-day free trial</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-slate-600 dark:text-slate-300 font-medium">No credit card required</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span className="text-slate-600 dark:text-slate-300 font-medium">Cancel anytime</span>
+        {/* Bottom guarantee */}
+        <div className="mt-20 text-center">
+          <div className="inline-flex items-center space-x-8 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 px-8 py-6 rounded-2xl">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <span className="text-zinc-300">14-day money-back guarantee</span>
             </div>
           </div>
         </div>
