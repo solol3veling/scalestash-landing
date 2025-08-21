@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Features = () => {
   const [visibleSections, setVisibleSections] = useState(new Set());
+  const [hoveredCard, setHoveredCard] = useState(null);
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const Features = () => {
               }
             });
           },
-          { threshold: 0.2, rootMargin: '-50px' }
+          { threshold: 0.3, rootMargin: '-50px' }
         );
         observer.observe(ref);
         observers.push(observer);
@@ -30,20 +31,12 @@ const Features = () => {
   }, []);
 
   return (
-    <section id="features" className="relative bg-black overflow-hidden">
-      {/* Grid Background */}
+    <section id="features" className="relative bg-gradient-to-b from-black via-zinc-950 to-black overflow-hidden">
+      {/* Subtle background effects */}
       <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-black" 
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(113, 113, 122, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(113, 113, 122, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '20px 20px'
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Header */}
@@ -68,7 +61,11 @@ const Features = () => {
             visibleSections.has(0) ? 'animate-slideInLeft' : 'opacity-0'
           }`} style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center space-x-4">
-              <div className="text-3xl">🔗</div>
+              <div className="p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
               <h3 className="text-2xl font-bold text-white">Multi-platform management</h3>
             </div>
             <p className="text-lg text-zinc-400 leading-relaxed">
@@ -81,10 +78,8 @@ const Features = () => {
                 'Cross-platform posting',
                 'Real-time synchronization'
               ].map((detail, i) => (
-                <li key={i} className="flex items-center space-x-3 text-zinc-300">
-                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <li key={i} className="flex items-center space-x-3 text-zinc-300 transform hover:translate-x-2 transition-all duration-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span>{detail}</span>
                 </li>
               ))}
@@ -93,10 +88,14 @@ const Features = () => {
           <div className={`relative ${
             visibleSections.has(0) ? 'animate-slideInRight' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6 shadow-2xl">
+            <div 
+              className="bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 backdrop-blur-xl rounded-3xl border border-zinc-700/50 p-8 shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer"
+              onMouseEnter={() => setHoveredCard(0)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
               <div className="flex items-center justify-between mb-6">
-                <div className="text-white font-semibold text-sm">Connected Platforms</div>
-                <div className="text-green-400 text-xs">8 active</div>
+                <div className="text-white font-semibold">Connected Platforms</div>
+                <div className="text-green-400 text-sm font-medium">8 active</div>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[
@@ -105,16 +104,16 @@ const Features = () => {
                   { name: 'LinkedIn', icon: 'in', color: 'from-blue-600 to-blue-800', active: true },
                   { name: 'TikTok', icon: 'TT', color: 'from-red-500 to-pink-500', active: false }
                 ].map((platform, i) => (
-                  <div key={i} className={`p-3 rounded-xl border transition-all duration-500 ${
+                  <div key={i} className={`p-4 rounded-2xl border transition-all duration-500 transform hover:scale-110 ${
                     platform.active 
-                      ? `bg-gradient-to-r ${platform.color} border-transparent` 
-                      : 'bg-zinc-800 border-zinc-700'
-                  }`}>
+                      ? `bg-gradient-to-r ${platform.color} border-transparent shadow-lg` 
+                      : 'bg-zinc-800/50 border-zinc-600 hover:border-zinc-500'
+                  } ${hoveredCard === 0 ? 'animate-pulse' : ''}`}>
                     <div className="flex items-center space-x-3">
-                      <div className="text-white font-bold text-sm">{platform.icon}</div>
+                      <div className="text-white font-bold">{platform.icon}</div>
                       <div>
-                        <div className="text-white text-xs font-medium">{platform.name}</div>
-                        <div className={`text-xs ${platform.active ? 'text-green-300' : 'text-zinc-500'}`}>
+                        <div className="text-white text-sm font-medium">{platform.name}</div>
+                        <div className={`text-xs ${platform.active ? 'text-green-300' : 'text-zinc-400'}`}>
                           {platform.active ? 'Connected' : 'Available'}
                         </div>
                       </div>
@@ -122,9 +121,9 @@ const Features = () => {
                   </div>
                 ))}
               </div>
-              <div className="bg-zinc-800/50 p-3 rounded-lg">
-                <div className="text-zinc-400 text-xs mb-1">Total reach</div>
-                <div className="text-white text-lg font-bold">2.4M followers</div>
+              <div className="bg-zinc-800/50 p-4 rounded-2xl border border-zinc-700/50">
+                <div className="text-zinc-400 text-sm mb-1">Total reach</div>
+                <div className="text-white text-xl font-bold">2.4M followers</div>
               </div>
             </div>
           </div>
@@ -140,32 +139,36 @@ const Features = () => {
           <div className={`relative lg:order-2 ${
             visibleSections.has(1) ? 'animate-slideInRight' : 'opacity-0'
           }`} style={{ animationDelay: '0.1s' }}>
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6 shadow-2xl">
+            <div 
+              className="bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 backdrop-blur-xl rounded-3xl border border-zinc-700/50 p-8 shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer"
+              onMouseEnter={() => setHoveredCard(1)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
               <div className="flex items-center justify-between mb-6">
-                <div className="text-white font-semibold text-sm">Smart Schedule</div>
-                <div className="text-blue-400 text-xs">AI Optimized</div>
+                <div className="text-white font-semibold">Smart Schedule</div>
+                <div className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full font-medium">AI Optimized</div>
               </div>
               <div className="space-y-4 mb-6">
                 {[
-                  { time: '9:00 AM', platform: 'LinkedIn', engagement: '94%', color: 'bg-blue-600' },
+                  { time: '9:00 AM', platform: 'LinkedIn', engagement: '94%', color: 'bg-blue-500' },
                   { time: '2:30 PM', platform: 'Instagram', engagement: '87%', color: 'bg-pink-500' },
                   { time: '7:15 PM', platform: 'Twitter', engagement: '91%', color: 'bg-blue-400' }
                 ].map((slot, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-zinc-800/50 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 ${slot.color} rounded-full`}></div>
+                  <div key={i} className={`flex items-center justify-between p-4 bg-zinc-800/50 rounded-2xl transition-all duration-500 transform hover:scale-105 border border-zinc-700/30 ${hoveredCard === 1 ? 'animate-pulse' : ''}`}>
+                    <div className="flex items-center space-x-4">
+                      <div className={`w-3 h-3 ${slot.color} rounded-full animate-pulse`}></div>
                       <div>
-                        <div className="text-white text-sm font-medium">{slot.time}</div>
-                        <div className="text-zinc-400 text-xs">{slot.platform}</div>
+                        <div className="text-white font-medium">{slot.time}</div>
+                        <div className="text-zinc-400 text-sm">{slot.platform}</div>
                       </div>
                     </div>
-                    <div className="text-green-400 text-xs font-medium">{slot.engagement} reach</div>
+                    <div className="text-green-400 text-sm font-medium">{slot.engagement} reach</div>
                   </div>
                 ))}
               </div>
-              <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-3 rounded-lg border border-blue-500/30">
-                <div className="text-blue-300 text-xs mb-1">AI Recommendation</div>
-                <div className="text-white text-sm">Post 2 hours earlier for +23% engagement</div>
+              <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-4 rounded-2xl border border-blue-500/30">
+                <div className="text-blue-300 text-sm mb-1">AI Recommendation</div>
+                <div className="text-white">Post 2 hours earlier for +23% engagement</div>
               </div>
             </div>
           </div>
@@ -173,7 +176,11 @@ const Features = () => {
             visibleSections.has(1) ? 'animate-slideInLeft' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center space-x-4">
-              <div className="text-3xl">⏰</div>
+              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
               <h3 className="text-2xl font-bold text-white">Smart scheduling</h3>
             </div>
             <p className="text-lg text-zinc-400 leading-relaxed">
@@ -186,10 +193,8 @@ const Features = () => {
                 'Time zone optimization',
                 'Peak engagement analysis'
               ].map((detail, i) => (
-                <li key={i} className="flex items-center space-x-3 text-zinc-300">
-                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <li key={i} className="flex items-center space-x-3 text-zinc-300 transform hover:translate-x-2 transition-all duration-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span>{detail}</span>
                 </li>
               ))}
@@ -208,7 +213,11 @@ const Features = () => {
             visibleSections.has(2) ? 'animate-slideInLeft' : 'opacity-0'
           }`} style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center space-x-4">
-              <div className="text-3xl">📊</div>
+              <div className="p-3 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
               <h3 className="text-2xl font-bold text-white">Analytics & insights</h3>
             </div>
             <p className="text-lg text-zinc-400 leading-relaxed">
@@ -221,10 +230,8 @@ const Features = () => {
                 'Engagement rate tracking',
                 'Growth analytics dashboard'
               ].map((detail, i) => (
-                <li key={i} className="flex items-center space-x-3 text-zinc-300">
-                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <li key={i} className="flex items-center space-x-3 text-zinc-300 transform hover:translate-x-2 transition-all duration-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span>{detail}</span>
                 </li>
               ))}
@@ -233,30 +240,34 @@ const Features = () => {
           <div className={`relative ${
             visibleSections.has(2) ? 'animate-slideInRight' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6 shadow-2xl">
+            <div 
+              className="bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 backdrop-blur-xl rounded-3xl border border-zinc-700/50 p-8 shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer"
+              onMouseEnter={() => setHoveredCard(2)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
               <div className="flex items-center justify-between mb-6">
-                <div className="text-white font-semibold text-sm">Analytics Dashboard</div>
-                <div className="text-green-400 text-xs">Live</div>
+                <div className="text-white font-semibold">Analytics Dashboard</div>
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {[
-                  { label: 'Engagement', value: '+127%', color: 'text-green-400' },
-                  { label: 'Reach', value: '2.4M', color: 'text-blue-400' },
-                  { label: 'Followers', value: '+5.2K', color: 'text-purple-400' },
-                  { label: 'Clicks', value: '847', color: 'text-orange-400' }
+                  { label: 'Engagement', value: '+127%', color: 'text-green-400', bg: 'bg-green-400/10' },
+                  { label: 'Reach', value: '2.4M', color: 'text-blue-400', bg: 'bg-blue-400/10' },
+                  { label: 'Followers', value: '+5.2K', color: 'text-purple-400', bg: 'bg-purple-400/10' },
+                  { label: 'Clicks', value: '847', color: 'text-orange-400', bg: 'bg-orange-400/10' }
                 ].map((metric, i) => (
-                  <div key={i} className="bg-zinc-800/50 p-3 rounded-lg text-center">
-                    <div className={`text-lg font-bold ${metric.color}`}>{metric.value}</div>
-                    <div className="text-zinc-400 text-xs">{metric.label}</div>
+                  <div key={i} className={`${metric.bg} p-4 rounded-2xl text-center transform hover:scale-110 transition-all duration-500 border border-zinc-700/30 ${hoveredCard === 2 ? 'animate-pulse' : ''}`}>
+                    <div className={`text-xl font-bold ${metric.color} mb-1`}>{metric.value}</div>
+                    <div className="text-zinc-400 text-sm">{metric.label}</div>
                   </div>
                 ))}
               </div>
-              <div className="bg-zinc-800/50 p-4 rounded-lg">
+              <div className="bg-zinc-800/50 p-4 rounded-2xl border border-zinc-700/50">
                 <div className="flex justify-between items-center mb-2">
-                  <div className="text-zinc-400 text-xs">Top performing post</div>
-                  <div className="text-green-400 text-xs">+340% engagement</div>
+                  <div className="text-zinc-400 text-sm">Top performing post</div>
+                  <div className="text-green-400 text-sm font-medium">+340% engagement</div>
                 </div>
-                <div className="text-white text-sm">"Behind the scenes of our latest project..."</div>
+                <div className="text-white">"Behind the scenes of our latest project..."</div>
               </div>
             </div>
           </div>
@@ -272,34 +283,38 @@ const Features = () => {
           <div className={`relative lg:order-2 ${
             visibleSections.has(3) ? 'animate-slideInRight' : 'opacity-0'
           }`} style={{ animationDelay: '0.1s' }}>
-            <div className="bg-zinc-900/50 backdrop-blur-xl rounded-2xl border border-zinc-800 p-6 shadow-2xl">
+            <div 
+              className="bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 backdrop-blur-xl rounded-3xl border border-zinc-700/50 p-8 shadow-2xl transform hover:scale-105 transition-all duration-500 cursor-pointer"
+              onMouseEnter={() => setHoveredCard(3)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
               <div className="flex items-center justify-between mb-6">
-                <div className="text-white font-semibold text-sm">Team Workspace</div>
-                <div className="text-yellow-400 text-xs">3 pending approvals</div>
+                <div className="text-white font-semibold">Team Workspace</div>
+                <div className="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full font-medium">3 pending</div>
               </div>
-              <div className="space-y-3 mb-6">
+              <div className="space-y-4 mb-6">
                 {[
-                  { name: 'Sarah Chen', role: 'Content Manager', status: 'Online', avatar: 'SC' },
-                  { name: 'Mike Johnson', role: 'Designer', status: 'Away', avatar: 'MJ' },
-                  { name: 'Emma Davis', role: 'Social Media', status: 'Online', avatar: 'ED' }
+                  { name: 'Sarah Chen', role: 'Content Manager', status: 'Online', avatar: 'SC', color: 'from-blue-500 to-cyan-500' },
+                  { name: 'Mike Johnson', role: 'Designer', status: 'Away', avatar: 'MJ', color: 'from-purple-500 to-pink-500' },
+                  { name: 'Emma Davis', role: 'Social Media', status: 'Online', avatar: 'ED', color: 'from-emerald-500 to-teal-500' }
                 ].map((member, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 bg-zinc-800/50 rounded-lg">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">{member.avatar}</span>
+                  <div key={i} className={`flex items-center justify-between p-4 bg-zinc-800/50 rounded-2xl transform hover:scale-105 transition-all duration-500 border border-zinc-700/30 ${hoveredCard === 3 ? 'animate-pulse' : ''}`}>
+                    <div className="flex items-center space-x-4">
+                      <div className={`w-10 h-10 bg-gradient-to-br ${member.color} rounded-full flex items-center justify-center shadow-lg`}>
+                        <span className="text-white text-sm font-bold">{member.avatar}</span>
                       </div>
                       <div>
-                        <div className="text-white text-sm font-medium">{member.name}</div>
-                        <div className="text-zinc-400 text-xs">{member.role}</div>
+                        <div className="text-white font-medium">{member.name}</div>
+                        <div className="text-zinc-400 text-sm">{member.role}</div>
                       </div>
                     </div>
-                    <div className={`w-2 h-2 rounded-full ${member.status === 'Online' ? 'bg-green-400' : 'bg-zinc-500'}`}></div>
+                    <div className={`w-3 h-3 rounded-full ${member.status === 'Online' ? 'bg-green-400 animate-pulse' : 'bg-zinc-500'}`}></div>
                   </div>
                 ))}
               </div>
-              <div className="bg-orange-500/20 p-3 rounded-lg border border-orange-500/30">
-                <div className="text-orange-300 text-xs mb-1">Pending Review</div>
-                <div className="text-white text-sm">"New product launch campaign" needs approval</div>
+              <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 p-4 rounded-2xl border border-orange-500/30">
+                <div className="text-orange-300 text-sm mb-1">Pending Review</div>
+                <div className="text-white">"New product launch campaign" needs approval</div>
               </div>
             </div>
           </div>
@@ -307,7 +322,11 @@ const Features = () => {
             visibleSections.has(3) ? 'animate-slideInLeft' : 'opacity-0'
           }`} style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center space-x-4">
-              <div className="text-3xl">👥</div>
+              <div className="p-3 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
               <h3 className="text-2xl font-bold text-white">Team collaboration</h3>
             </div>
             <p className="text-lg text-zinc-400 leading-relaxed">
@@ -320,10 +339,8 @@ const Features = () => {
                 'Team activity tracking',
                 'Brand consistency tools'
               ].map((detail, i) => (
-                <li key={i} className="flex items-center space-x-3 text-zinc-300">
-                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                <li key={i} className="flex items-center space-x-3 text-zinc-300 transform hover:translate-x-2 transition-all duration-300">
+                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span>{detail}</span>
                 </li>
               ))}
