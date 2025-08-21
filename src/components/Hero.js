@@ -85,19 +85,36 @@ const Hero = () => {
           {/* Right Column - Post Flow Illustration */}
           <div className="relative hidden lg:block">
             <div className="relative h-[600px] w-full">
-              {/* Animated posts falling down */}
-              <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                <div className="flex flex-col space-y-8">
-                  {[1, 2, 3].map((post, i) => (
-                    <div key={i} className={`bg-white/95 rounded-xl p-5 shadow-2xl w-40 transform transition-all duration-1000 ${
-                      i === 0 ? 'animate-bounce delay-0' : 
-                      i === 1 ? 'animate-bounce delay-300' : 
-                      'animate-bounce delay-500'
-                    }`} style={{ animationDelay: `${i * 0.7}s` }}>
-                      <div className="w-full h-4 bg-zinc-700 rounded mb-4"></div>
-                      <div className="w-4/5 h-3 bg-zinc-400 rounded mb-3"></div>
-                      <div className="w-3/5 h-3 bg-zinc-400 rounded mb-3"></div>
-                      <div className="w-2/3 h-3 bg-zinc-300 rounded"></div>
+              {/* Post Flow Cards */}
+              <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
+                <div className="flex flex-col space-y-6">
+                  {[
+                    { color: 'bg-gradient-to-r from-blue-500 to-purple-600', title: 'Product Launch Post' },
+                    { color: 'bg-gradient-to-r from-green-500 to-teal-600', title: 'Weekly Update' },
+                    { color: 'bg-gradient-to-r from-orange-500 to-red-600', title: 'Community Highlight' }
+                  ].map((post, i) => (
+                    <div key={i} className={`${post.color} rounded-xl p-4 shadow-2xl w-48 transform transition-all duration-500`}>
+                      <div className="bg-white/90 rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="text-xs font-medium text-gray-600">Draft Post</div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        </div>
+                        <div className="text-sm font-semibold text-gray-800 mb-2">{post.title}</div>
+                        <div className="space-y-2">
+                          <div className="w-full h-2 bg-gray-200 rounded"></div>
+                          <div className="w-4/5 h-2 bg-gray-200 rounded"></div>
+                          <div className="w-3/5 h-2 bg-gray-200 rounded"></div>
+                        </div>
+                        <div className="flex justify-between items-center mt-3 pt-2 border-t border-gray-200">
+                          <div className="flex space-x-1">
+                            <div className="w-4 h-4 bg-purple-500 rounded text-white text-xs flex items-center justify-center">IG</div>
+                            <div className="w-4 h-4 bg-black rounded text-white text-xs flex items-center justify-center">𝕏</div>
+                            <div className="w-4 h-4 bg-blue-600 rounded text-white text-xs flex items-center justify-center">in</div>
+                            <div className="w-4 h-4 bg-blue-500 rounded text-white text-xs flex items-center justify-center">f</div>
+                          </div>
+                          <div className="text-xs text-gray-500">2:30 PM</div>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -108,7 +125,7 @@ const Hero = () => {
                 <div className="relative h-80">
                   {/* Instagram Card - Top Layer */}
                   <div className="absolute top-4 left-8 transform rotate-2 z-40">
-                    <div className="w-80 h-56 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-2xl border border-purple-400/30 overflow-hidden backdrop-blur-sm">
+                    <div className="w-96 h-56 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-2xl border border-purple-400/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
@@ -152,7 +169,7 @@ const Hero = () => {
 
                   {/* Twitter/X Card - Second Layer */}
                   <div className="absolute top-12 -left-4 transform -rotate-1 z-30">
-                    <div className="w-80 h-56 bg-black rounded-2xl shadow-2xl border border-white/20 overflow-hidden backdrop-blur-sm">
+                    <div className="w-96 h-56 bg-black rounded-2xl shadow-2xl border border-white/20 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
@@ -196,7 +213,7 @@ const Hero = () => {
 
                   {/* LinkedIn Card - Third Layer */}
                   <div className="absolute top-20 right-2 transform rotate-1 z-20">
-                    <div className="w-80 h-56 bg-blue-600 rounded-2xl shadow-2xl border border-blue-400/30 overflow-hidden backdrop-blur-sm">
+                    <div className="w-96 h-56 bg-blue-600 rounded-2xl shadow-2xl border border-blue-400/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
@@ -240,7 +257,7 @@ const Hero = () => {
 
                   {/* Facebook Card - Bottom Layer */}
                   <div className="absolute top-28 left-12 transform -rotate-2 z-10">
-                    <div className="w-80 h-56 bg-blue-500 rounded-2xl shadow-2xl border border-blue-300/30 overflow-hidden backdrop-blur-sm">
+                    <div className="w-96 h-56 bg-blue-500 rounded-2xl shadow-2xl border border-blue-300/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
@@ -302,64 +319,89 @@ const Hero = () => {
                 </defs>
                 
                 {/* Animated dotted paths from posts to cards */}
-                <g className="animate-pulse">
-                  {/* To Instagram */}
+                <g>
+                  {/* From Post 1 to Instagram */}
                   <path 
-                    d="M 240 140 Q 320 280 300 420" 
+                    d="M 240 120 Q 360 250 380 420" 
                     stroke="url(#flowGradient)" 
-                    strokeWidth="5" 
-                    strokeDasharray="15,8" 
+                    strokeWidth="6" 
+                    strokeDasharray="20,10" 
                     fill="none" 
                     filter="url(#glow)"
-                    className="animate-pulse"
                     style={{ 
-                      strokeDashoffset: '30',
-                      animation: 'dash 3s linear infinite, pulse 2s ease-in-out infinite' 
+                      strokeDashoffset: '40',
+                      animation: 'dash 4s linear infinite' 
                     }}
                   />
                   
-                  {/* To Twitter */}
+                  {/* From Post 1 to Twitter */}
                   <path 
-                    d="M 240 160 Q 120 300 100 440" 
+                    d="M 240 120 Q 80 250 60 440" 
                     stroke="url(#flowGradient)" 
-                    strokeWidth="5" 
-                    strokeDasharray="15,8" 
+                    strokeWidth="6" 
+                    strokeDasharray="20,10" 
                     fill="none" 
                     filter="url(#glow)"
-                    className="animate-pulse"
                     style={{ 
-                      strokeDashoffset: '30',
-                      animation: 'dash 3s linear infinite 0.5s, pulse 2s ease-in-out infinite 0.5s' 
+                      strokeDashoffset: '40',
+                      animation: 'dash 4s linear infinite 0.3s' 
                     }}
                   />
                   
-                  {/* To LinkedIn */}
+                  {/* From Post 2 to LinkedIn */}
                   <path 
-                    d="M 240 180 Q 380 320 360 460" 
+                    d="M 240 180 Q 420 300 440 460" 
                     stroke="url(#flowGradient)" 
-                    strokeWidth="5" 
-                    strokeDasharray="15,8" 
+                    strokeWidth="6" 
+                    strokeDasharray="20,10" 
                     fill="none" 
                     filter="url(#glow)"
-                    className="animate-pulse"
                     style={{ 
-                      strokeDashoffset: '30',
-                      animation: 'dash 3s linear infinite 1s, pulse 2s ease-in-out infinite 1s' 
+                      strokeDashoffset: '40',
+                      animation: 'dash 4s linear infinite 0.6s' 
                     }}
                   />
                   
-                  {/* To Facebook */}
+                  {/* From Post 3 to Facebook */}
                   <path 
-                    d="M 240 200 Q 200 340 220 480" 
+                    d="M 240 240 Q 280 360 300 480" 
                     stroke="url(#flowGradient)" 
-                    strokeWidth="5" 
+                    strokeWidth="6" 
+                    strokeDasharray="20,10" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    style={{ 
+                      strokeDashoffset: '40',
+                      animation: 'dash 4s linear infinite 0.9s' 
+                    }}
+                  />
+                  
+                  {/* Additional cross-posting paths */}
+                  <path 
+                    d="M 240 180 Q 100 300 80 460" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="4" 
                     strokeDasharray="15,8" 
                     fill="none" 
                     filter="url(#glow)"
-                    className="animate-pulse"
+                    opacity="0.6"
                     style={{ 
                       strokeDashoffset: '30',
-                      animation: 'dash 3s linear infinite 1.5s, pulse 2s ease-in-out infinite 1.5s' 
+                      animation: 'dash 4s linear infinite 1.2s' 
+                    }}
+                  />
+                  
+                  <path 
+                    d="M 240 240 Q 400 350 420 480" 
+                    stroke="url(#flowGradient)" 
+                    strokeWidth="4" 
+                    strokeDasharray="15,8" 
+                    fill="none" 
+                    filter="url(#glow)"
+                    opacity="0.6"
+                    style={{ 
+                      strokeDashoffset: '30',
+                      animation: 'dash 4s linear infinite 1.5s' 
                     }}
                   />
                 </g>
