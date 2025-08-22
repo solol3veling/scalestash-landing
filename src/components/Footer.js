@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const sections = [
@@ -58,9 +59,19 @@ const Footer = () => {
               <ul className="space-y-4">
                 {section.links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-zinc-400 hover:text-white transition-colors duration-300">
-                      {link}
-                    </a>
+                    {link === 'About' ? (
+                      <Link to="/about" className="text-zinc-400 hover:text-white transition-colors duration-300">
+                        {link}
+                      </Link>
+                    ) : link === 'Contact' ? (
+                      <Link to="/about#contact" className="text-zinc-400 hover:text-white transition-colors duration-300">
+                        {link}
+                      </Link>
+                    ) : (
+                      <a href="#" className="text-zinc-400 hover:text-white transition-colors duration-300">
+                        {link}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

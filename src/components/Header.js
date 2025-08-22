@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isAboutPage = location.pathname === '/about';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +29,7 @@ const Header = () => {
         }`}>
           {/* Logo */}
           <div className="flex items-center">
-            <span className={`font-medium transition-all duration-500 ${
+            <Link to="/" className={`font-medium transition-all duration-500 ${
               isScrolled 
                 ? 'text-lg text-white' 
                 : 'text-xl text-white'
@@ -35,23 +38,29 @@ const Header = () => {
               letterSpacing: '-0.02em'
             }}>
               scalestash
-            </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-              Features
-            </a>
-            <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-              Pricing
-            </a>
-            <a href="#about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+            {!isAboutPage && (
+              <>
+                <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Features
+                </a>
+                <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Pricing
+                </a>
+              </>
+            )}
+            <Link to="/about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
               About
-            </a>
-            <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-              Contact
-            </a>
+            </Link>
+            {isAboutPage && (
+              <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                Contact
+              </a>
+            )}
           </nav>
 
           {/* Desktop Actions */}
@@ -86,18 +95,24 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-6 border-t border-zinc-800 bg-black/90 backdrop-blur-xl">
             <nav className="flex flex-col space-y-6">
-              <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                Features
-              </a>
-              <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                Pricing
-              </a>
-              <a href="#about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+              {!isAboutPage && (
+                <>
+                  <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                    Features
+                  </a>
+                  <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                    Pricing
+                  </a>
+                </>
+              )}
+              <Link to="/about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
                 About
-              </a>
-              <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                Contact
-              </a>
+              </Link>
+              {isAboutPage && (
+                <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Contact
+                </a>
+              )}
               <div className="flex flex-col space-y-4 pt-6 border-t border-zinc-800">
                 <button className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium text-left">
                   Sign In
