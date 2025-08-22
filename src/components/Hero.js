@@ -85,38 +85,41 @@ const Hero = () => {
           {/* Right Column - Post Flow Illustration */}
           <div className="relative hidden lg:block">
             <div className="relative h-[600px] w-full">
-              {/* Post Flow Cards */}
-              <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
-                <div className="flex flex-col space-y-6">
-                  {[
-                    { color: 'bg-gradient-to-r from-blue-500 to-purple-600', title: 'Product Launch Post' },
-                    { color: 'bg-gradient-to-r from-green-500 to-teal-600', title: 'Weekly Update' },
-                    { color: 'bg-gradient-to-r from-orange-500 to-red-600', title: 'Community Highlight' }
-                  ].map((post, i) => (
-                    <div key={i} className={`${post.color} rounded-xl p-4 shadow-2xl w-48 transform transition-all duration-500`}>
-                      <div className="bg-white/90 rounded-lg p-4">
-                        <div className="flex items-center justify-between mb-3">
-                          <div className="text-xs font-medium text-gray-600">Draft Post</div>
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        </div>
-                        <div className="text-sm font-semibold text-gray-800 mb-2">{post.title}</div>
-                        <div className="space-y-2">
-                          <div className="w-full h-2 bg-gray-200 rounded"></div>
-                          <div className="w-4/5 h-2 bg-gray-200 rounded"></div>
-                          <div className="w-3/5 h-2 bg-gray-200 rounded"></div>
-                        </div>
-                        <div className="flex justify-between items-center mt-3 pt-2 border-t border-gray-200">
-                          <div className="flex space-x-1">
-                            <div className="w-4 h-4 bg-purple-500 rounded text-white text-xs flex items-center justify-center">IG</div>
-                            <div className="w-4 h-4 bg-black rounded text-white text-xs flex items-center justify-center">𝕏</div>
-                            <div className="w-4 h-4 bg-blue-600 rounded text-white text-xs flex items-center justify-center">in</div>
-                            <div className="w-4 h-4 bg-blue-500 rounded text-white text-xs flex items-center justify-center">f</div>
-                          </div>
-                          <div className="text-xs text-gray-500">2:30 PM</div>
-                        </div>
-                      </div>
+              {/* Single Post Card */}
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="bg-zinc-900/90 rounded-xl p-5 shadow-2xl w-96 transform transition-all duration-500 border border-zinc-700/50">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-sm font-medium text-zinc-400">New Post</div>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="text-xs text-zinc-500">Ready</div>
                     </div>
-                  ))}
+                  </div>
+                  <div className="text-base font-semibold text-white mb-3">🚀 Exciting Product Launch!</div>
+                  <div className="space-y-2 mb-4">
+                    <div className="w-full h-2.5 bg-zinc-700/50 rounded"></div>
+                    <div className="w-5/6 h-2.5 bg-zinc-700/50 rounded"></div>
+                    <div className="w-4/5 h-2.5 bg-zinc-700/50 rounded"></div>
+                    <div className="w-2/3 h-2.5 bg-zinc-700/50 rounded"></div>
+                  </div>
+                  <div className="flex justify-between items-center pt-3 border-t border-zinc-700/50">
+                    <div className="flex space-x-2">
+                      <div className="w-6 h-6 bg-purple-500 rounded-lg text-white text-xs flex items-center justify-center font-bold shadow-sm">IG</div>
+                      <div className="w-6 h-6 bg-black rounded-lg text-white text-xs flex items-center justify-center font-bold shadow-sm border border-white/20">𝕏</div>
+                      <div className="w-6 h-6 bg-blue-600 rounded-lg text-white text-xs flex items-center justify-center font-bold shadow-sm">in</div>
+                      <div className="w-6 h-6 bg-blue-500 rounded-lg text-white text-xs flex items-center justify-center font-bold shadow-sm">f</div>
+                    </div>
+                    <div className="text-sm text-zinc-400 font-medium">Schedule: 2:30 PM</div>
+                  </div>
+                  
+                  {/* Connector Icon at bottom border */}
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
+                    <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg animate-pulse border-2 border-zinc-900">
+                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -124,7 +127,7 @@ const Hero = () => {
               <div className="absolute bottom-0 left-0 right-0">
                 <div className="relative h-80">
                   {/* Instagram Card - Top Layer */}
-                  <div className="absolute top-4 left-8 transform rotate-2 z-40">
+                  <div className="absolute top-4 left-8 transform rotate-6 z-40">
                     <div className="w-96 h-56 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl shadow-2xl border border-purple-400/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
@@ -168,7 +171,7 @@ const Hero = () => {
                   </div>
 
                   {/* Twitter/X Card - Second Layer */}
-                  <div className="absolute top-12 -left-4 transform -rotate-1 z-30">
+                  <div className="absolute top-12 -left-4 transform -rotate-8 z-30">
                     <div className="w-96 h-56 bg-black rounded-2xl shadow-2xl border border-white/20 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
@@ -212,7 +215,7 @@ const Hero = () => {
                   </div>
 
                   {/* LinkedIn Card - Third Layer */}
-                  <div className="absolute top-20 right-2 transform rotate-1 z-20">
+                  <div className="absolute top-20 right-2 transform rotate-5 z-20">
                     <div className="w-96 h-56 bg-blue-600 rounded-2xl shadow-2xl border border-blue-400/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
@@ -256,7 +259,7 @@ const Hero = () => {
                   </div>
 
                   {/* Facebook Card - Bottom Layer */}
-                  <div className="absolute top-28 left-12 transform -rotate-2 z-10">
+                  <div className="absolute top-28 left-12 transform -rotate-7 z-10">
                     <div className="w-96 h-56 bg-blue-500 rounded-2xl shadow-2xl border border-blue-300/30 overflow-hidden backdrop-blur-sm">
                       <div className="p-6 h-full flex flex-col">
                         {/* Header */}
@@ -318,92 +321,111 @@ const Hero = () => {
                   </filter>
                 </defs>
                 
-                {/* Animated dotted paths from posts to cards */}
+                {/* Electrical Circuit Paths */}
                 <g>
-                  {/* From Post 1 to Instagram */}
-                  <path 
-                    d="M 240 120 Q 360 250 380 420" 
-                    stroke="url(#flowGradient)" 
-                    strokeWidth="6" 
-                    strokeDasharray="20,10" 
-                    fill="none" 
-                    filter="url(#glow)"
-                    style={{ 
-                      strokeDashoffset: '40',
-                      animation: 'dash 4s linear infinite' 
-                    }}
-                  />
-                  
-                  {/* From Post 1 to Twitter */}
-                  <path 
-                    d="M 240 120 Q 80 250 60 440" 
-                    stroke="url(#flowGradient)" 
-                    strokeWidth="6" 
-                    strokeDasharray="20,10" 
-                    fill="none" 
-                    filter="url(#glow)"
-                    style={{ 
-                      strokeDashoffset: '40',
-                      animation: 'dash 4s linear infinite 0.3s' 
-                    }}
-                  />
-                  
-                  {/* From Post 2 to LinkedIn */}
-                  <path 
-                    d="M 240 180 Q 420 300 440 460" 
-                    stroke="url(#flowGradient)" 
-                    strokeWidth="6" 
-                    strokeDasharray="20,10" 
-                    fill="none" 
-                    filter="url(#glow)"
-                    style={{ 
-                      strokeDashoffset: '40',
-                      animation: 'dash 4s linear infinite 0.6s' 
-                    }}
-                  />
-                  
-                  {/* From Post 3 to Facebook */}
-                  <path 
-                    d="M 240 240 Q 280 360 300 480" 
-                    stroke="url(#flowGradient)" 
-                    strokeWidth="6" 
-                    strokeDasharray="20,10" 
-                    fill="none" 
-                    filter="url(#glow)"
-                    style={{ 
-                      strokeDashoffset: '40',
-                      animation: 'dash 4s linear infinite 0.9s' 
-                    }}
-                  />
-                  
-                  {/* Additional cross-posting paths */}
-                  <path 
-                    d="M 240 180 Q 100 300 80 460" 
-                    stroke="url(#flowGradient)" 
+                  {/* Main vertical bus line - starts below post card */}
+                  <line 
+                    x1="240" y1="130" 
+                    x2="240" y2="220" 
+                    stroke="#ffffff" 
                     strokeWidth="4" 
-                    strokeDasharray="15,8" 
-                    fill="none" 
+                    strokeOpacity="0.8"
                     filter="url(#glow)"
-                    opacity="0.6"
-                    style={{ 
-                      strokeDashoffset: '30',
-                      animation: 'dash 4s linear infinite 1.2s' 
-                    }}
                   />
                   
-                  <path 
-                    d="M 240 240 Q 400 350 420 480" 
-                    stroke="url(#flowGradient)" 
-                    strokeWidth="4" 
-                    strokeDasharray="15,8" 
-                    fill="none" 
+                  {/* Horizontal distribution lines */}
+                  <line 
+                    x1="240" y1="150" 
+                    x2="420" y2="150" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
                     filter="url(#glow)"
-                    opacity="0.6"
-                    style={{ 
-                      strokeDashoffset: '30',
-                      animation: 'dash 4s linear infinite 1.5s' 
-                    }}
                   />
+                  <line 
+                    x1="240" y1="170" 
+                    x2="40" y2="170" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  <line 
+                    x1="240" y1="190" 
+                    x2="480" y2="190" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  <line 
+                    x1="240" y1="210" 
+                    x2="340" y2="210" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  
+                  {/* Vertical drops to cards */}
+                  <line 
+                    x1="420" y1="150" 
+                    x2="420" y2="420" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  <line 
+                    x1="40" y1="170" 
+                    x2="40" y2="440" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  <line 
+                    x1="480" y1="190" 
+                    x2="480" y2="460" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  <line 
+                    x1="340" y1="210" 
+                    x2="340" y2="480" 
+                    stroke="#ffffff" 
+                    strokeWidth="3" 
+                    strokeOpacity="0.8"
+                    filter="url(#glow)"
+                  />
+                  
+                  {/* Circuit junctions */}
+                  <circle cx="240" cy="150" r="4" fill="#ffffff" stroke="#e5e7eb" strokeWidth="2"/>
+                  <circle cx="240" cy="170" r="4" fill="#ffffff" stroke="#e5e7eb" strokeWidth="2"/>
+                  <circle cx="240" cy="190" r="4" fill="#ffffff" stroke="#e5e7eb" strokeWidth="2"/>
+                  <circle cx="240" cy="210" r="4" fill="#ffffff" stroke="#e5e7eb" strokeWidth="2"/>
+                  
+                  {/* Connection terminals at cards */}
+                  <circle cx="420" cy="420" r="5" fill="#10b981" stroke="#059669" strokeWidth="2" className="animate-pulse"/>
+                  <circle cx="40" cy="440" r="5" fill="#10b981" stroke="#059669" strokeWidth="2" className="animate-pulse"/>
+                  <circle cx="480" cy="460" r="5" fill="#10b981" stroke="#059669" strokeWidth="2" className="animate-pulse"/>
+                  <circle cx="340" cy="480" r="5" fill="#10b981" stroke="#059669" strokeWidth="2" className="animate-pulse"/>
+                  
+                  {/* Animated current flow indicators */}
+                  <circle r="4" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M 240,130 L 240,150 L 420,150 L 420,420"/>
+                  </circle>
+                  <circle r="4" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 240,130 L 240,170 L 40,170 L 40,440"/>
+                  </circle>
+                  <circle r="4" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1">
+                    <animateMotion dur="3s" repeatCount="indefinite" path="M 240,130 L 240,190 L 480,190 L 480,460"/>
+                  </circle>
+                  <circle r="4" fill="#3b82f6" stroke="#1d4ed8" strokeWidth="1">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 240,130 L 240,210 L 340,210 L 340,480"/>
+                  </circle>
                 </g>
               </svg>
 
