@@ -5,15 +5,15 @@ const Footer = () => {
   const sections = [
     {
       title: "Product",
-      links: ["Features", "Pricing", "API", "Integrations"]
+      links: ["Features", "Pricing"]
     },
     {
       title: "Company", 
-      links: ["About", "Blog", "Careers", "Press"]
+      links: ["About"]
     },
     {
       title: "Support",
-      links: ["Help", "Contact", "Status", "Security"]
+      links: ["Contact"]
     }
   ];
 
@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-6">
-              <span className="text-xl font-medium" style={{ 
+              <span className="text-xl font-bold" style={{ 
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                 letterSpacing: '-0.02em'
               }}>

@@ -5,7 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isAboutPage = location.pathname === '/about';
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +29,7 @@ const Header = () => {
         }`}>
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className={`font-medium transition-all duration-500 ${
+            <Link to="/" className={`font-bold transition-all duration-500 ${
               isScrolled 
                 ? 'text-lg text-white' 
                 : 'text-xl text-white'
@@ -43,24 +43,27 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            {!isAboutPage && (
-              <>
-                <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                  Features
-                </a>
-                <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                  Pricing
-                </a>
-              </>
+            {isHomePage ? (
+              <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                Features
+              </a>
+            ) : (
+              <Link to="/#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                Features
+              </Link>
+            )}
+            {isHomePage ? (
+              <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                Pricing
+              </a>
+            ) : (
+              <Link to="/#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                Pricing
+              </Link>
             )}
             <Link to="/about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
               About
             </Link>
-            {isAboutPage && (
-              <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                Contact
-              </a>
-            )}
           </nav>
 
           {/* Desktop Actions */}
@@ -95,24 +98,27 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-6 border-t border-zinc-800 bg-black/90 backdrop-blur-xl">
             <nav className="flex flex-col space-y-6">
-              {!isAboutPage && (
-                <>
-                  <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                    Features
-                  </a>
-                  <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                    Pricing
-                  </a>
-                </>
+              {isHomePage ? (
+                <a href="#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Features
+                </a>
+              ) : (
+                <Link to="/#features" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Features
+                </Link>
+              )}
+              {isHomePage ? (
+                <a href="#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Pricing
+                </a>
+              ) : (
+                <Link to="/#pricing" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
+                  Pricing
+                </Link>
               )}
               <Link to="/about" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
                 About
               </Link>
-              {isAboutPage && (
-                <a href="#contact" className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium">
-                  Contact
-                </a>
-              )}
               <div className="flex flex-col space-y-4 pt-6 border-t border-zinc-800">
                 <button className="text-zinc-300 hover:text-white transition-colors duration-300 font-medium text-left">
                   Sign In

@@ -3,42 +3,29 @@ import React from 'react';
 const Pricing = () => {
   const plans = [
     {
-      name: 'Starter',
-      price: '$12',
-      description: 'Perfect for individual creators',
+      name: 'Free',
+      price: '$0',
+      description: 'Perfect for getting started',
       features: [
-        '5 social accounts',
-        '100 posts/month',
-        'Basic analytics',
+        '2 social accounts',
+        '10 posts/month',
+        'Basic scheduling',
         'Content calendar',
         'Email support'
       ]
     },
     {
       name: 'Pro',
-      price: '$29',
-      description: 'Ideal for growing businesses',
+      price: '$19',
+      description: 'For serious content creators',
       popular: true,
       features: [
-        '25 social accounts',
+        'Unlimited social accounts',
         'Unlimited posts',
         'Advanced analytics',
-        'Team collaboration (5 users)',
-        'AI content suggestions',
+        'Calendar drag & drop',
+        'Bulk scheduling',
         'Priority support'
-      ]
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      description: 'For large teams and agencies',
-      features: [
-        'Unlimited accounts',
-        'Unlimited team members',
-        'Custom analytics',
-        'API access',
-        'Dedicated manager',
-        'Phone support'
       ]
     }
   ];
@@ -55,7 +42,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -113,24 +100,10 @@ const Pricing = () => {
                   ? 'bg-white text-black hover:bg-zinc-200' 
                   : 'bg-zinc-800 text-white hover:bg-zinc-700'
               }`}>
-                {plan.price === 'Custom' ? 'Contact sales' : 'Start free trial'}
+                {plan.name === 'Free' ? 'Get started free' : 'Start Pro trial'}
               </button>
             </div>
           ))}
-        </div>
-
-        {/* Bottom guarantee */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center space-x-8 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 px-8 py-6 rounded-2xl">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <span className="text-zinc-300">14-day money-back guarantee</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -73,24 +73,24 @@ const About = () => {
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-6">
+                            <div className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-6">
                                 <div className="flex items-center justify-between mb-4">
-                                    <h4 className="text-sm font-semibold text-gray-900">Company Metrics</h4>
+                                    <h4 className="text-sm font-semibold text-white">Company Metrics</h4>
                                     <span className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded">Growing</span>
                                 </div>
                                 <div className="space-y-4">
                                     {[
-                                        { label: 'Active Users', value: '50K+', growth: '+127%' },
-                                        { label: 'Posts Managed', value: '2.4M', growth: '+89%' },
-                                        { label: 'Team Members', value: '25', growth: '+67%' },
-                                        { label: 'Countries', value: '45', growth: '+25%' }
+                                        { label: 'Beta Users', value: '1.2K+', growth: 'Growing daily' },
+                                        { label: 'Posts Scheduled', value: '45K+', growth: 'Since launch' },
+                                        { label: 'Platforms', value: '4', growth: 'Supported' },
+                                        { label: 'Uptime', value: '99.9%', growth: 'Reliability' }
                                     ].map((metric, i) => (
-                                        <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                        <div key={i} className="flex items-center justify-between p-3 bg-zinc-800 rounded-lg border border-zinc-700">
                                             <div>
-                                                <div className="text-sm font-medium text-gray-900">{metric.label}</div>
-                                                <div className="text-xs text-gray-500">{metric.growth} this year</div>
+                                                <div className="text-sm font-medium text-white">{metric.label}</div>
+                                                <div className="text-xs text-zinc-400">{metric.growth}</div>
                                             </div>
-                                            <div className="text-lg font-bold text-gray-900">{metric.value}</div>
+                                            <div className="text-lg font-bold text-white">{metric.value}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -132,62 +132,44 @@ const About = () => {
                                 color: 'orange'
                             }
                         ].map((value, i) => (
-                            <div key={i} className="bg-white rounded-lg shadow-xl border border-gray-200 p-6">
+                            <div key={i} className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-6">
                                 <div className={`w-12 h-12 bg-${value.color}-600 rounded-lg flex items-center justify-center mb-4`}>
                                     <div className="w-6 h-6 bg-white rounded-full"></div>
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                                <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                                <p className="text-zinc-400 leading-relaxed">{value.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Team Section */}
+            {/* Founder Section */}
             <section className="bg-black py-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-16">
                         <div className="inline-flex items-center space-x-2 bg-emerald-600/10 px-3 py-1 rounded-md border border-emerald-600/20 mb-4">
                             <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-emerald-400">Our Team</span>
+                            <span className="text-sm font-medium text-emerald-400">Meet the Founder</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Meet the people behind scalestash</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Built by a solo creator</h2>
                         <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-                            A diverse team of creators, engineers, and designers passionate about social media.
+                            Scalestash is built and maintained by a passionate developer who understands the challenges of managing social media.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                name: 'Sarah Chen',
-                                role: 'CEO & Co-founder',
-                                bio: 'Former social media manager turned entrepreneur. 8 years of experience helping brands grow online.',
-                                initials: 'SC'
-                            },
-                            {
-                                name: 'Mike Rodriguez',
-                                role: 'CTO & Co-founder',
-                                bio: 'Full-stack engineer with expertise in scalable systems. Previously at major tech companies.',
-                                initials: 'MR'
-                            },
-                            {
-                                name: 'Emma Thompson',
-                                role: 'Head of Design',
-                                bio: 'UX designer passionate about creating intuitive experiences. Award-winning design background.',
-                                initials: 'ET'
-                            }
-                        ].map((member, i) => (
-                            <div key={i} className="bg-white rounded-lg shadow-xl border border-gray-200 p-6 text-center">
-                                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <span className="text-white text-lg font-bold">{member.initials}</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                                <p className="text-blue-600 font-medium mb-3">{member.role}</p>
-                                <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+                    <div className="flex justify-center">
+                        <div className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-8 text-center max-w-md">
+                            <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span className="text-white text-2xl font-bold">You</span>
                             </div>
-                        ))}
+                            <h3 className="text-2xl font-bold text-white mb-2">Solo Founder</h3>
+                            <p className="text-blue-400 font-medium mb-4">Creator & Developer</p>
+                            <p className="text-zinc-400 leading-relaxed">
+                                Building scalestash to solve real social media management challenges. Focused on creating simple, 
+                                effective tools for creators and small businesses.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -207,11 +189,11 @@ const About = () => {
                     </div>
 
                     <div className="max-w-2xl mx-auto">
-                        <div className="bg-white rounded-lg shadow-xl border border-gray-200 p-8">
+                        <div className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-8">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                                             Name
                                         </label>
                                         <input
@@ -221,12 +203,12 @@ const About = () => {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors"
+                                            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
                                             placeholder="Your full name"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                                             Email
                                         </label>
                                         <input
@@ -236,14 +218,14 @@ const About = () => {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors"
+                                            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
                                             placeholder="your@email.com"
                                         />
                                     </div>
                                 </div>
                                 
                                 <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
+                                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                                         Subject
                                     </label>
                                     <input
@@ -253,13 +235,13 @@ const About = () => {
                                         value={formData.subject}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors"
+                                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
                                         placeholder="What's this about?"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                                         Message
                                     </label>
                                     <textarea
@@ -269,7 +251,7 @@ const About = () => {
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors resize-none"
+                                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors resize-none placeholder-zinc-400"
                                         placeholder="Tell us more about your question or feedback..."
                                     ></textarea>
                                 </div>
@@ -284,7 +266,7 @@ const About = () => {
                                 </div>
                             </form>
 
-                            <div className="mt-8 pt-8 border-t border-gray-200">
+                            <div className="mt-8 pt-8 border-t border-zinc-700">
                                 <div className="grid md:grid-cols-2 gap-6 text-center">
                                     <div>
                                         <h4 className="text-sm font-medium text-gray-900 mb-2">Email Support</h4>
