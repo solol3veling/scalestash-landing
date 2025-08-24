@@ -30,11 +30,14 @@ jobs:
         
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
+      env:
+        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         port: 22
+        fingerprint: ${{ secrets.SSH_FINGERPRINT }}
         script: |
           # Login to DockerHub for private repo access
           echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
