@@ -33,14 +33,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-zinc-950">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-200 mb-6">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span className="text-sm font-medium text-gray-600">Social Proof</span>
+          <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-4 py-2 rounded-full border border-zinc-700/50 mb-6">
+            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+            <span className="text-sm font-medium text-zinc-300">Social Proof</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight" style={{
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight" style={{
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             letterSpacing: '-0.02em'
           }}>
@@ -53,23 +53,23 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-200"
+              className="bg-zinc-900/50 border border-zinc-700/50 rounded-2xl p-6 hover:bg-zinc-900/80 transition-all duration-200 backdrop-blur-sm"
             >
               <div className="mb-6">
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-zinc-300 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
               </div>
 
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                  <span className="text-gray-600 font-medium text-sm">{testimonial.avatar}</span>
+                <div className="w-10 h-10 bg-zinc-800/50 rounded-full flex items-center justify-center">
+                  <span className="text-zinc-300 font-medium text-sm">{testimonial.avatar}</span>
                 </div>
                 <div>
-                  <div className="font-medium text-gray-900">
+                  <div className="font-medium text-white">
                     {testimonial.author}
                   </div>
-                  <div className="text-gray-500 text-sm">
+                  <div className="text-zinc-400 text-sm">
                     {testimonial.title}
                     {testimonial.company && ` at ${testimonial.company}`}
                     {testimonial.followers && ` • ${testimonial.followers} followers`}
@@ -81,14 +81,14 @@ const Testimonials = () => {
         </div>
 
         {/* Stats */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8">
+        <div className="bg-zinc-900/50 border border-zinc-700/50 rounded-2xl p-8 backdrop-blur-sm">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-3xl font-bold text-white mb-1">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 text-sm">
+                <div className="text-zinc-400 text-sm">
                   {stat.label}
                 </div>
               </div>

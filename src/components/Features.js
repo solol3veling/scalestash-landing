@@ -2,17 +2,17 @@ import React from 'react';
 
 const Features = () => {
     return (
-        <section id="features" className="relative bg-gray-50">
+        <section id="features" className="relative bg-zinc-950">
             {/* Header */}
             <div className="max-w-6xl mx-auto px-6 pt-24 pb-16">
                 <div className="text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight" style={{
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight" style={{
                         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                         letterSpacing: '-0.02em'
                     }}>
                         Everything you need
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
                         Powerful tools designed for modern social media management
                     </p>
                 </div>
@@ -21,14 +21,14 @@ const Features = () => {
             {/* Core Features Section */}
             <div className="max-w-6xl mx-auto px-6 py-20">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-200 mb-6">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-sm font-medium text-gray-600">Core Features</span>
+                    <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-4 py-2 rounded-full border border-zinc-700/50 mb-6">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span className="text-sm font-medium text-zinc-300">Core Features</span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
                         Built for productivity
                     </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         Everything you need to manage your social media presence effectively
                     </p>
                 </div>
@@ -91,12 +91,12 @@ const Features = () => {
                             )
                         }
                     ].map((feature, i) => (
-                        <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-200 group">
-                            <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gray-900 group-hover:text-white transition-all duration-200">
+                        <div key={i} className="bg-zinc-900/50 rounded-2xl p-6 border border-zinc-700/50 hover:bg-zinc-900/80 transition-all duration-200 group backdrop-blur-sm">
+                            <div className="w-12 h-12 bg-zinc-800/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white group-hover:text-black transition-all duration-200">
                                 {feature.icon}
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                            <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+                            <p className="text-zinc-400 text-sm leading-relaxed">{feature.description}</p>
                         </div>
                     ))}
                 </div>

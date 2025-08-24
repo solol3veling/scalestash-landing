@@ -41,14 +41,14 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-black">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full border border-gray-200 mb-6">
-            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-            <span className="text-sm font-medium text-gray-600">FAQ</span>
+          <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-4 py-2 rounded-full border border-zinc-700/50 mb-6">
+            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+            <span className="text-sm font-medium text-zinc-300">FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight" style={{
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight" style={{
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             letterSpacing: '-0.02em'
           }}>
@@ -60,17 +60,17 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-sm transition-all duration-200"
+              className="bg-zinc-900/50 border border-zinc-700/50 rounded-2xl overflow-hidden hover:bg-zinc-900/80 transition-all duration-200 backdrop-blur-sm"
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none hover:bg-zinc-800/50 transition-colors duration-200"
               >
-                <span className="text-base font-medium text-gray-900 pr-8">
+                <span className="text-base font-medium text-white pr-8">
                   {faq.question}
                 </span>
                 <div className={`flex-shrink-0 w-5 h-5 transition-transform duration-200 ${openItems.has(index) ? 'rotate-180' : ''}`}>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
@@ -78,7 +78,7 @@ const FAQ = () => {
               
               <div className={`transition-all duration-200 overflow-hidden ${openItems.has(index) ? 'max-h-96 pb-5' : 'max-h-0'}`}>
                 <div className="px-6">
-                  <div className="text-gray-600 leading-relaxed">
+                  <div className="text-zinc-400 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
