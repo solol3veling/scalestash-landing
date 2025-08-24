@@ -40,10 +40,10 @@ Open [http://localhost:3000](http://localhost:3000) to view the app in your brow
 
 ```bash
 # Build Docker image
-docker build -t scalestash-landing .
+docker build -t elitekaycy/project:scalestash.io.landing.latest .
 
 # Run container
-docker run -d -p 3000:3000 --name scalestash-landing scalestash-landing
+docker run -d -p 3000:3000 --name scalestash-landing elitekaycy/project:scalestash.io.landing.latest
 ```
 
 ### Production Deployment
@@ -51,9 +51,14 @@ docker run -d -p 3000:3000 --name scalestash-landing scalestash-landing
 The project includes automated deployment via GitHub Actions:
 
 1. Push to `dev` branch triggers the pipeline
-2. Builds Docker image and pushes to DockerHub (`elitekaycy/scalestash-landing:latest`)
-3. Deploys to production server via SSH
+2. Builds Docker image and pushes to DockerHub (`elitekaycy/project:scalestash.io.landing.latest`)
+3. Deploys to production server via SSH (with Docker login for private repo access)
 4. Automatically cleans up unused containers and images
+
+**Docker Image Strategy:**
+- Single private repository: `elitekaycy/project`
+- Domain-based tags: `scalestash.io.landing.latest`, `scalestash.io.backend.latest`, etc.
+- Organized by domain and component for cleaner namespace management
 
 ## 📁 Project Structure
 

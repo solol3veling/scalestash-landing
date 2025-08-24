@@ -18,33 +18,39 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v3
       with:
-        username: elitekaycy
-        password: Kvnkhairokaycy1
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
         
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: elitekaycy/scalestash-landing:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest
         
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: elitekaycy-server.ddns.net
-        username: elitekaycy
-        password: ${{ secrets.SSH_PASSWORD }}
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker pull elitekaycy/scalestash-landing:latest
+          # Login to DockerHub for private repo access
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           
+          # Pull latest image
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest
+          
+          # Stop and remove existing container
           docker stop scalestash-landing || true
           docker rm scalestash-landing || true
           
+          # Run new container
           docker run -d \
             --name scalestash-landing \
             -p 3000:3000 \
             --restart unless-stopped \
-            elitekaycy/scalestash-landing:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest 
           
           docker image prune -f
           docker container prune -f
