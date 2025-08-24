@@ -32,18 +32,21 @@ const About = () => {
     };
 
     return (
-        <div className="min-h-screen bg-black">
+        <div className="min-h-screen bg-white">
             <Header />
             
             {/* Hero Section */}
-            <section className="relative bg-black pt-32 pb-16">
-                <div className="max-w-7xl mx-auto px-6">
+            <section className="relative bg-white pt-32 pb-16">
+                <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight" style={{
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                            letterSpacing: '-0.02em'
+                        }}>
                             About 
-                            <span className="block text-blue-400">scalestash</span>
+                            <span className="block text-gray-600">scalestash</span>
                         </h1>
-                        <p className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             We're building the future of social media management for creators, businesses, and teams worldwide.
                         </p>
                     </div>
@@ -51,23 +54,23 @@ const About = () => {
             </section>
 
             {/* Story Section */}
-            <section className="bg-black py-16">
+            <section className="bg-gray-50 py-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-6">
                             <div className="space-y-4">
-                                <div className="inline-flex items-center space-x-2 bg-blue-600/10 px-3 py-1 rounded-md border border-blue-600/20">
-                                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                    <span className="text-sm font-medium text-blue-400">Our Story</span>
+                                <div className="inline-flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-gray-200">
+                                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    <span className="text-sm font-medium text-gray-600">Our Story</span>
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white">Building better social media tools</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Building better social media tools</h2>
                             </div>
-                            <p className="text-lg text-zinc-400 leading-relaxed">
+                            <p className="text-lg text-gray-600 leading-relaxed">
                                 scalestash was founded with a simple mission: make social media management accessible, 
                                 efficient, and powerful for everyone. We saw creators and businesses struggling with 
                                 fragmented tools and decided to build something better.
                             </p>
-                            <p className="text-lg text-zinc-400 leading-relaxed">
+                            <p className="text-lg text-gray-600 leading-relaxed">
                                 Our team combines years of experience in social media, product design, and engineering 
                                 to deliver a platform that truly understands your workflow.
                             </p>
@@ -101,15 +104,15 @@ const About = () => {
             </section>
 
             {/* Values Section */}
-            <section className="bg-black py-16">
-                <div className="max-w-7xl mx-auto px-6">
+            <section className="bg-white py-16">
+                <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-purple-600/10 px-3 py-1 rounded-md border border-purple-600/20 mb-4">
-                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-purple-400">Our Values</span>
+                        <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full border border-gray-200 mb-4">
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <span className="text-sm font-medium text-gray-600">Our Values</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What drives us forward</h2>
-                        <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What drives us forward</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             These core principles guide everything we build and every decision we make.
                         </p>
                     </div>

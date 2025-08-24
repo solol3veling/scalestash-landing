@@ -9,7 +9,7 @@ import Footer from './Footer';
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       <Header />
       <Hero />
       <Features />
