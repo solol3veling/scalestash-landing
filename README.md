@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# ScaleStash Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive landing page for ScaleStash - the modern way to manage social media. Built with React and styled with Tailwind CSS, featuring a sleek dark theme with glass-morphism effects.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **Modern Design**: Clean, minimalist dark theme with glass-morphism effects
+- **Responsive**: Optimized for all device sizes
+- **Performance**: Built with React 19 and optimized for production
+- **Analytics Dashboard Preview**: Interactive cards showing social media metrics
+- **Contact Form**: Integrated contact form with email functionality
+- **Docker Ready**: Containerized for easy deployment
 
-### `npm start`
+## 🚀 Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js 18 or higher
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Clone the repository
+git clone https://github.com/solol3veling/scalestash-landing.git
+cd scalestash-landing
 
-### `npm run build`
+# Install dependencies
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Start development server
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🐳 Docker Deployment
 
-### `npm run eject`
+### Build and run locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Build Docker image
+docker build -t scalestash-landing .
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Run container
+docker run -d -p 3000:3000 --name scalestash-landing scalestash-landing
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Production Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project includes automated deployment via GitHub Actions:
 
-## Learn More
+1. Push to `dev` branch triggers the pipeline
+2. Builds Docker image and pushes to DockerHub (`elitekaycy/scalestash-landing:latest`)
+3. Deploys to production server via SSH
+4. Automatically cleans up unused containers and images
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📁 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/
+│   ├── Header.js          # Navigation header
+│   ├── Hero.js            # Main hero section with analytics preview
+│   ├── Features.js        # Feature cards
+│   ├── Pricing.js         # Pricing plans
+│   ├── Testimonials.js    # Customer testimonials
+│   ├── FAQ.js             # Frequently asked questions
+│   ├── Footer.js          # Footer with links
+│   ├── About.js           # About page with founder info
+│   └── LandingPage.js     # Main page component
+├── App.js                 # App router and routes
+└── index.js              # Application entry point
+```
 
-### Code Splitting
+## 🛠️ Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **React 19** - Frontend framework
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Docker** - Containerization
+- **GitHub Actions** - CI/CD pipeline
 
-### Analyzing the Bundle Size
+## 📱 Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Home** - Main landing page with hero, features, pricing, testimonials, and FAQ
+- **About** - Company information, founder details, and contact form
 
-### Making a Progressive Web App
+## 🎨 Design System
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Colors**: Dark theme with zinc/black palette
+- **Typography**: System fonts with optimized letter spacing
+- **Effects**: Glass-morphism with backdrop blur and transparency
+- **Responsive**: Mobile-first design approach
 
-### Advanced Configuration
+## 📧 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Founder**: Dickson Anyaele
+- **Email**: support@scalestash.com
+- **LinkedIn**: [Dickson Anyaele](https://www.linkedin.com/in/dickson-anyaele-3375611b3/)
 
-### Deployment
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is private and proprietary to ScaleStash.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with ❤️ by [elitekaycy](https://github.com/elitekaycy)
