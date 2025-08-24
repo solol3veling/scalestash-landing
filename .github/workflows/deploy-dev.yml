@@ -30,12 +30,10 @@ jobs:
         
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
-      env:
-        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.SSH_PASSWORD }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         fingerprint: ${{ secrets.SSH_FINGERPRINT }}
         script: |
