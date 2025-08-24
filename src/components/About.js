@@ -177,27 +177,27 @@ const About = () => {
             </section>
 
             {/* Founder Section */}
-            <section className="bg-black py-16">
-                <div className="max-w-7xl mx-auto px-6">
+            <section className="bg-gray-50 py-16">
+                <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-emerald-600/10 px-3 py-1 rounded-md border border-emerald-600/20 mb-4">
-                            <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-emerald-400">Meet the Founder</span>
+                        <div className="inline-flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-gray-200 mb-4">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                            <span className="text-sm font-medium text-gray-600">Meet the Founder</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Built by a solo creator</h2>
-                        <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Built by a solo creator</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Scalestash is built and maintained by a passionate developer who understands the challenges of managing social media.
                         </p>
                     </div>
 
                     <div className="flex justify-center">
-                        <div className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-8 text-center max-w-md">
-                            <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <span className="text-white text-2xl font-bold">You</span>
+                        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 text-center max-w-md">
+                            <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span className="text-gray-600 text-xl font-semibold">You</span>
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Solo Founder</h3>
-                            <p className="text-blue-400 font-medium mb-4">Creator & Developer</p>
-                            <p className="text-zinc-400 leading-relaxed">
+                            <h3 className="text-xl font-bold text-gray-900 mb-2">Solo Founder</h3>
+                            <p className="text-blue-600 font-medium mb-4">Creator & Developer</p>
+                            <p className="text-gray-600 leading-relaxed">
                                 Building scalestash to solve real social media management challenges. Focused on creating simple, 
                                 effective tools for creators and small businesses.
                             </p>
@@ -207,25 +207,25 @@ const About = () => {
             </section>
 
             {/* Contact Form Section */}
-            <section id="contact" className="bg-black py-16">
-                <div className="max-w-7xl mx-auto px-6">
+            <section id="contact" className="bg-gray-50 py-16">
+                <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-orange-600/10 px-3 py-1 rounded-md border border-orange-600/20 mb-4">
-                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-orange-400">Get In Touch</span>
+                        <div className="inline-flex items-center space-x-2 bg-white px-3 py-1.5 rounded-full border border-gray-200 mb-4">
+                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                            <span className="text-sm font-medium text-gray-600">Get In Touch</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact us</h2>
-                        <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact us</h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Have questions about scalestash? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
                         </p>
                     </div>
 
                     <div className="max-w-2xl mx-auto">
-                        <div className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-8">
+                        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                                        <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
                                             Name
                                         </label>
                                         <input
@@ -235,12 +235,12 @@ const About = () => {
                                             value={formData.name}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none transition-colors placeholder-gray-500"
                                             placeholder="Your full name"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
                                             Email
                                         </label>
                                         <input
@@ -250,14 +250,14 @@ const About = () => {
                                             value={formData.email}
                                             onChange={handleInputChange}
                                             required
-                                            className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
+                                            className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none transition-colors placeholder-gray-500"
                                             placeholder="your@email.com"
                                         />
                                     </div>
                                 </div>
                                 
                                 <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
+                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-900 mb-2">
                                         Subject
                                     </label>
                                     <input
@@ -267,13 +267,13 @@ const About = () => {
                                         value={formData.subject}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors placeholder-zinc-400"
+                                        className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none transition-colors placeholder-gray-500"
                                         placeholder="What's this about?"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
                                         Message
                                     </label>
                                     <textarea
@@ -283,7 +283,7 @@ const About = () => {
                                         value={formData.message}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-colors resize-none placeholder-zinc-400"
+                                        className="w-full px-4 py-3 bg-white border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-gray-900 outline-none transition-colors resize-none placeholder-gray-500"
                                         placeholder="Tell us more about your question or feedback..."
                                     ></textarea>
                                 </div>
@@ -291,14 +291,14 @@ const About = () => {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
+                                        className="w-full bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200"
                                     >
                                         Send Message
                                     </button>
                                 </div>
                             </form>
 
-                            <div className="mt-8 pt-8 border-t border-zinc-700">
+                            <div className="mt-8 pt-8 border-t border-gray-200">
                                 <div className="grid md:grid-cols-2 gap-6 text-center">
                                     <div>
                                         <h4 className="text-sm font-medium text-gray-900 mb-2">Email Support</h4>

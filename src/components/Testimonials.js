@@ -33,36 +33,43 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-zinc-950">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Loved by creators
+    <section className="py-24 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full border border-gray-200 mb-6">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm font-medium text-gray-600">Social Proof</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 tracking-tight" style={{
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            letterSpacing: '-0.02em'
+          }}>
+            Loved by creators worldwide
           </h2>
         </div>
 
         {/* Testimonials */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-8 hover:bg-zinc-900/80 transition-all duration-500"
+              className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-200"
             >
-              <div className="mb-8">
-                <p className="text-zinc-100 text-lg leading-relaxed">
+              <div className="mb-6">
+                <p className="text-gray-700 leading-relaxed">
                   "{testimonial.quote}"
                 </p>
               </div>
 
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center">
-                  <span className="text-white font-medium">{testimonial.avatar}</span>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                  <span className="text-gray-600 font-medium text-sm">{testimonial.avatar}</span>
                 </div>
                 <div>
-                  <div className="font-medium text-white">
+                  <div className="font-medium text-gray-900">
                     {testimonial.author}
                   </div>
-                  <div className="text-zinc-400 text-sm">
+                  <div className="text-gray-500 text-sm">
                     {testimonial.title}
                     {testimonial.company && ` at ${testimonial.company}`}
                     {testimonial.followers && ` • ${testimonial.followers} followers`}
@@ -74,14 +81,14 @@ const Testimonials = () => {
         </div>
 
         {/* Stats */}
-        <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl p-12">
+        <div className="bg-white border border-gray-200 rounded-2xl p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <div className="text-3xl font-bold text-gray-900 mb-1">
                   {stat.number}
                 </div>
-                <div className="text-zinc-400">
+                <div className="text-gray-600 text-sm">
                   {stat.label}
                 </div>
               </div>
