@@ -119,25 +119,54 @@ const About = () => {
                             {
                                 title: 'User-Centric Design',
                                 description: 'Every feature is built with user experience at the forefront. We prioritize simplicity and functionality.',
-                                color: 'blue'
+                                icon: (
+                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                ),
+                                gradientFrom: 'from-blue-600',
+                                gradientTo: 'to-blue-800',
+                                accentColor: 'blue',
+                                glowColor: 'blue-500'
                             },
                             {
                                 title: 'Innovation First',
                                 description: 'We constantly push boundaries to deliver cutting-edge social media management solutions.',
-                                color: 'emerald'
+                                icon: (
+                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                ),
+                                gradientFrom: 'from-emerald-600',
+                                gradientTo: 'to-teal-700',
+                                accentColor: 'emerald',
+                                glowColor: 'emerald-500'
                             },
                             {
                                 title: 'Transparency',
                                 description: 'Open communication with our users and clear pricing with no hidden fees or surprises.',
-                                color: 'orange'
+                                icon: (
+                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                ),
+                                gradientFrom: 'from-orange-600',
+                                gradientTo: 'to-red-700',
+                                accentColor: 'orange',
+                                glowColor: 'orange-500'
                             }
                         ].map((value, i) => (
-                            <div key={i} className="bg-zinc-900 rounded-lg shadow-xl border border-zinc-700 p-6">
-                                <div className={`w-12 h-12 bg-${value.color}-600 rounded-lg flex items-center justify-center mb-4`}>
-                                    <div className="w-6 h-6 bg-white rounded-full"></div>
+                            <div key={i} className="bg-zinc-900 rounded-lg border border-zinc-700 p-6 hover:bg-zinc-800 transition-colors">
+                                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
-                                <p className="text-zinc-400 leading-relaxed">{value.description}</p>
+                                <p className="text-zinc-400 leading-relaxed">
+                                    {value.description}
+                                </p>
                             </div>
                         ))}
                     </div>
