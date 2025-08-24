@@ -1,0 +1,50 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: Login to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: elitekaycy
+        password: Kvnkhairokaycy1
+        
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: elitekaycy/scalestash-landing:latest
+        
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: elitekaycy-server.ddns.net
+        username: elitekaycy
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          docker pull elitekaycy/scalestash-landing:latest
+          
+          docker stop scalestash-landing || true
+          docker rm scalestash-landing || true
+          
+          docker run -d \
+            --name scalestash-landing \
+            -p 3000:3000 \
+            --restart unless-stopped \
+            elitekaycy/scalestash-landing:latest
+          
+          docker image prune -f
+          docker container prune -f
