@@ -1,11 +1,11 @@
-name: Deploy to Dev
+name: Build and Push to Docker
 
 on:
   push:
     branches: [ dev ]
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
     
     steps:
@@ -27,31 +27,3 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest
-        
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
-        script: |
-          # Login to DockerHub for private repo access
-          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-          
-          # Pull latest image
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest
-          
-          # Stop and remove existing container
-          docker stop scalestash-landing || true
-          docker rm scalestash-landing || true
-          
-          # Run new container
-          docker run -d \
-            --name scalestash-landing \
-            -p 3000:3000 \
-            --restart unless-stopped \
-            ${{ secrets.DOCKERHUB_USERNAME }}/project:scalestash.io.landing.latest 
-          
-          docker image prune -f
-          docker container prune -f
