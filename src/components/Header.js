@@ -27,11 +27,14 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="font-semibold text-lg text-white hover:text-zinc-300 transition-colors" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-              letterSpacing: '-0.01em'
-            }}>
-              scalestash
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+              <img src="/favicon-s-white.png" alt="scalestash" className="h-8 w-8 rounded-md" />
+              <span className="font-semibold text-xl text-white" style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                letterSpacing: '-0.01em'
+              }}>
+                scalestash
+              </span>
             </Link>
           </div>
 
