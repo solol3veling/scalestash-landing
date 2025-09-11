@@ -90,7 +90,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-zinc-500 text-sm">
-            © 2024 scalestash. All rights reserved.
+            © 2025 scalestash. All rights reserved.
           </div>
           
           <div className="flex space-x-6 text-sm">
