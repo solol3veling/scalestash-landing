@@ -4,10 +4,9 @@ import LandingPage from './components/LandingPage';
 import About from './components/About';
 
 function App() {
-  const basename = process.env.NODE_ENV === 'production' ? '/scalestash-landing' : '';
-  
+  // No basename needed since we're using custom domain scalestash.com
   return (
-    <Router basename={basename}>
+    <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
