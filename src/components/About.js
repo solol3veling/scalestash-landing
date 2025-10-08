@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 const About = () => {
     const [formData, setFormData] = useState({
@@ -53,64 +54,32 @@ const About = () => {
             </section>
 
             {/* Story Section */}
-            <section className="bg-zinc-950 py-16">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-6">
-                            <div className="space-y-4">
-                                <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-3 py-1.5 rounded-full border border-zinc-700/50">
-                                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                    <span className="text-sm font-medium text-zinc-300">Our Story</span>
-                                </div>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white">Building better social media tools</h2>
-                            </div>
-                            <p className="text-lg text-zinc-400 leading-relaxed">
-                                scalestash was founded with a simple mission: make social media management accessible, 
-                                efficient, and powerful for everyone. We saw creators and businesses struggling with 
-                                fragmented tools and decided to build something better.
-                            </p>
-                            <p className="text-lg text-zinc-400 leading-relaxed">
-                                Our team combines years of experience in social media, product design, and engineering 
-                                to deliver a platform that truly understands your workflow.
-                            </p>
-                        </div>
-                        <div className="relative">
-                            <div className="bg-zinc-900/50 rounded-2xl border border-zinc-700/50 shadow-sm p-6 backdrop-blur-sm">
-                                <div className="flex items-center justify-between mb-6">
-                                    <h4 className="text-lg font-semibold text-white">Company Metrics</h4>
-                                    <span className="text-xs text-blue-400 bg-blue-900/50 px-3 py-1.5 rounded-full border border-blue-700/50">Growing</span>
-                                </div>
-                                <div className="space-y-4">
-                                    {[
-                                        { label: 'Beta Users', value: '1.2K+', growth: 'Growing daily' },
-                                        { label: 'Posts Scheduled', value: '45K+', growth: 'Since launch' },
-                                        { label: 'Platforms', value: '4', growth: 'Supported' },
-                                        { label: 'Uptime', value: '99.9%', growth: 'Reliability' }
-                                    ].map((metric, i) => (
-                                        <div key={i} className="flex items-center justify-between p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
-                                            <div>
-                                                <div className="text-sm font-medium text-white">{metric.label}</div>
-                                                <div className="text-xs text-zinc-400">{metric.growth}</div>
-                                            </div>
-                                            <div className="text-lg font-bold text-white">{metric.value}</div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <section className="bg-zinc-950 py-24">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-tight" style={{
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                        letterSpacing: '-0.02em'
+                    }}>Building better social media tools</h2>
+                    <p className="text-lg text-zinc-400 leading-relaxed mb-6">
+                        scalestash was founded with a simple mission: make social media management accessible,
+                        efficient, and powerful for everyone. We saw creators and businesses struggling with
+                        fragmented tools and decided to build something better.
+                    </p>
+                    <p className="text-lg text-zinc-400 leading-relaxed">
+                        Our team combines years of experience in social media, product design, and engineering
+                        to deliver a platform that truly understands your workflow.
+                    </p>
                 </div>
             </section>
 
             {/* Values Section */}
-            <section className="bg-black py-16">
+            <section className="bg-black py-24">
                 <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-3 py-1.5 rounded-full border border-zinc-700/50 mb-4">
-                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-zinc-300">Our Values</span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What drives us forward</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight" style={{
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                            letterSpacing: '-0.02em'
+                        }}>What drives us forward</h2>
                         <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
                             These core principles guide everything we build and every decision we make.
                         </p>
@@ -161,67 +130,14 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Founder Section */}
-            <section className="bg-zinc-950 py-16">
-                <div className="max-w-6xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-3 py-1.5 rounded-full border border-zinc-700/50 mb-4">
-                            <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-zinc-300">Meet the Founder</span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Built by a solo creator</h2>
-                        <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
-                            Scalestash is built and maintained by a passionate developer who understands the challenges of managing social media.
-                        </p>
-                    </div>
-
-                    <div className="flex justify-center">
-                        <div className="bg-zinc-900/50 rounded-2xl border border-zinc-700/50 shadow-sm p-8 text-center max-w-md backdrop-blur-sm">
-                            <div className="w-20 h-20 bg-zinc-800/50 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <span className="text-zinc-300 text-xl font-semibold">DA</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-2">Dickson Anyaele</h3>
-                            <p className="text-blue-400 font-medium mb-4">Founder & Developer</p>
-                            <p className="text-zinc-400 leading-relaxed mb-6">
-                                Building scalestash to solve real social media management challenges. Focused on creating simple, 
-                                effective tools for creators and small businesses.
-                            </p>
-                            <div className="flex justify-center space-x-4">
-                                <a 
-                                    href="https://www.linkedin.com/in/dickson-anyaele-3375611b3/" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
-                                >
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                    </svg>
-                                    <span className="text-sm">LinkedIn</span>
-                                </a>
-                                <a 
-                                    href="mailto:dicksonanyaele1234@gmail.com"
-                                    className="inline-flex items-center space-x-2 text-zinc-400 hover:text-zinc-300 transition-colors"
-                                >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                    <span className="text-sm">Email</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Contact Form Section */}
-            <section id="contact" className="bg-black py-16">
+            <section id="contact" className="bg-black py-24">
                 <div className="max-w-6xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-3 py-1.5 rounded-full border border-zinc-700/50 mb-4">
-                            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                            <span className="text-sm font-medium text-zinc-300">Get In Touch</span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact us</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight" style={{
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                            letterSpacing: '-0.02em'
+                        }}>Contact us</h2>
                         <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
                             Have questions about scalestash? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
                         </p>
@@ -321,6 +237,8 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
+            <Footer />
         </div>
     );
 };
