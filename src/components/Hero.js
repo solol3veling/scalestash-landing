@@ -32,7 +32,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 pt-32 md:pt-40 pb-20">
+      <div className="max-w-6xl mx-auto px-6 relative z-10 pt-32 md:pt-40 pb-32 md:pb-40">
         <div className="flex flex-col items-center text-center space-y-12">
           {/* Hero Content - Vertical Layout */}
           <div className="space-y-10 max-w-4xl">
