@@ -44,10 +44,6 @@ const FAQ = () => {
     <section className="py-24 bg-black">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-zinc-800/50 px-4 py-2 rounded-full border border-zinc-700/50 mb-6">
-            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-            <span className="text-sm font-medium text-zinc-300">FAQ</span>
-          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight" style={{
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             letterSpacing: '-0.02em'
