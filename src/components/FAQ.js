@@ -16,27 +16,27 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Which platforms do you support?",
-      answer: "Instagram, Twitter, LinkedIn, Facebook, TikTok, YouTube, and Pinterest. More platforms added regularly."
+      answer: "We currently support Facebook, Instagram, LinkedIn, and Twitter. More platforms are being added regularly based on user demand."
     },
     {
-      question: "Is there a free trial?",
-      answer: "Yes, 14 days completely free. No credit card required."
+      question: "What's included in the free trial?",
+      answer: "The free trial allows you to connect up to 3 social accounts and create a maximum of 15 posts. However, scheduling posts and viewing analytics are not available in the free trial. Upgrade to Pro to unlock all features."
     },
     {
       question: "Can I cancel anytime?",
-      answer: "Absolutely. Cancel with one click, no questions asked."
+      answer: "Absolutely. You can cancel your subscription at any time with one click. No questions asked, no cancellation fees."
     },
     {
       question: "Do you offer custom integrations?",
-      answer: "Enterprise plans include custom API integrations with your existing tools and workflows."
+      answer: "Custom integrations are not currently available. We're focused on perfecting our core platform integrations (Facebook, Instagram, LinkedIn, Twitter) to provide the best experience possible."
     },
     {
       question: "How secure is my data?",
-      answer: "Bank-level encryption, SOC 2 certified, and we never store your social passwords."
+      answer: "We use industry-standard encryption for both data at rest in our database and data in transit. Your information is protected with the same security standards used by leading tech companies."
     },
     {
       question: "Can I manage multiple brands?",
-      answer: "Yes, Pro and Enterprise plans support unlimited brand accounts with separate access controls."
+      answer: "Multiple brand management is not currently available. Each account is designed to manage a single brand's social media presence. This feature is on our roadmap for future releases."
     }
   ];
 
