@@ -23,11 +23,6 @@ const Hero = () => {
           {/* Left Column - Content */}
           <div className="space-y-8 max-w-xl">
             <div className="space-y-8">
-              <div className="inline-flex items-center space-x-2 bg-zinc-800/50 text-zinc-300 px-3 py-1.5 rounded-full text-sm font-medium border border-zinc-700/50">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span>Now in Beta</span>
-              </div>
-              
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white" style={{
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                 letterSpacing: '-0.02em'
@@ -43,17 +38,15 @@ const Hero = () => {
 
             {/* CTA Section */}
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 bg-zinc-900/50 border border-zinc-700 rounded-lg px-4 py-3 text-base text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-white transition-all shadow-sm backdrop-blur-sm"
-                />
-                <button className="bg-white text-black font-medium px-6 py-3 rounded-lg hover:bg-zinc-200 transition-colors whitespace-nowrap text-base shadow-sm">
+              <a
+                href="https://app.scalestash.com"
+                className="inline-block"
+              >
+                <button className="bg-white text-black font-semibold px-10 py-5 rounded-lg hover:bg-zinc-200 transition-all text-lg shadow-lg hover:shadow-xl transform hover:scale-105 duration-200">
                   Get Started
                 </button>
-              </div>
-              
+              </a>
+
               <p className="text-sm text-zinc-400">
                 Start your free trial. No credit card required.
               </p>

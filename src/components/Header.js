@@ -63,13 +63,13 @@ const Header = () => {
                     </nav>
 
                     {/* Desktop Actions */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <button className="text-sm text-zinc-400 hover:text-white transition-colors duration-200 font-medium">
-                            Sign In
-                        </button>
-                        <button className="bg-white text-black text-sm font-medium px-4 py-2 rounded-lg hover:bg-zinc-200 transition-all duration-200">
-                            Get Started
-                        </button>
+                    <div className="hidden md:flex items-center">
+                        <a
+                            href="https://app.scalestash.com"
+                            className="bg-white text-black text-sm font-medium px-6 py-2.5 rounded-lg hover:bg-zinc-200 transition-all duration-200"
+                        >
+                            Log in / Sign up
+                        </a>
                     </div>
 
                     {/* Mobile menu button */}
@@ -115,13 +115,13 @@ const Header = () => {
                             <Link to="/about" className="text-sm text-zinc-400 hover:text-white transition-colors duration-200 font-medium">
                                 About
                             </Link>
-                            <div className="flex flex-col space-y-3 pt-4 border-t border-zinc-800">
-                                <button className="text-sm text-zinc-400 hover:text-white transition-colors duration-200 font-medium text-left">
-                                    Sign In
-                                </button>
-                                <button className="bg-white text-black text-sm font-medium px-4 py-2 rounded-lg hover:bg-zinc-200 transition-all duration-200 w-full">
-                                    Get Started
-                                </button>
+                            <div className="pt-4 border-t border-zinc-800">
+                                <a
+                                    href="https://app.scalestash.com"
+                                    className="block w-full text-center bg-white text-black text-sm font-medium px-4 py-2 rounded-lg hover:bg-zinc-200 transition-all duration-200"
+                                >
+                                    Log in / Sign up
+                                </a>
                             </div>
                         </nav>
                     </div>
