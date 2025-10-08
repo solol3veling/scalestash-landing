@@ -12,9 +12,8 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate fade and transform based on scroll
-  const imageOpacity = Math.max(0, 1 - scrollY / 500);
-  const imageTransform = scrollY * 0.3;
+  // Calculate parallax effect (subtle movement, not fade out)
+  const imageTransform = scrollY * 0.15; // Reduced for subtler effect
 
   return (
     <section className="relative bg-black min-h-screen flex items-center overflow-hidden">
@@ -33,7 +32,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 pt-20 pb-32">
+      <div className="max-w-6xl mx-auto px-6 relative z-10 pt-32 md:pt-40 pb-20">
         <div className="flex flex-col items-center text-center space-y-12">
           {/* Hero Content - Vertical Layout */}
           <div className="space-y-10 max-w-4xl">
@@ -68,28 +67,34 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Dashboard Overview Image with Scroll Animation */}
+          {/* Dashboard Overview Image with Parallax Effect */}
           <div
-            className="relative w-full max-w-5xl mt-16 transition-all duration-500"
+            className="relative w-full max-w-6xl mt-20"
             style={{
-              opacity: imageOpacity,
-              transform: `translateY(${imageTransform}px)`
+              transform: `translateY(${imageTransform}px)`,
+              transition: 'transform 0.1s linear'
             }}
           >
-            <div className="relative rounded-2xl overflow-hidden border border-zinc-700/30 shadow-2xl">
-              {/* Image with fade effect */}
-              <img
-                src="/assets/overview_light.png"
-                alt="ScaleStash Dashboard Overview"
-                className="w-full h-auto"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)'
-                }}
-              />
+            {/* Perspective container for depth */}
+            <div className="relative perspective-1000">
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8)]">
+                {/* Image with bottom fade for seamless transition */}
+                <img
+                  src="/assets/overview_light.png"
+                  alt="ScaleStash Dashboard Overview"
+                  className="w-full h-auto"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)'
+                  }}
+                />
 
-              {/* Optional overlay gradient for better fade */}
-              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+                {/* Gradient overlay for smooth blend into background */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none"></div>
+
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 to-transparent pointer-events-none"></div>
+              </div>
             </div>
           </div>
         </div>
