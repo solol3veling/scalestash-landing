@@ -69,32 +69,44 @@ const Hero = () => {
 
           {/* Dashboard Overview Image with Parallax Effect */}
           <div
-            className="relative w-full max-w-6xl mt-20"
+            className="relative w-full max-w-6xl mt-20 pb-20"
             style={{
               transform: `translateY(${imageTransform}px)`,
               transition: 'transform 0.1s linear'
             }}
           >
             {/* Perspective container for depth */}
-            <div className="relative perspective-1000">
-              <div className="relative rounded-2xl overflow-hidden border border-zinc-700/50 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.8)]">
-                {/* Image with bottom fade for seamless transition */}
-                <img
-                  src="/assets/overview_light.png"
-                  alt="ScaleStash Dashboard Overview"
-                  className="w-full h-auto"
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-visible">
+                {/* Image with border and shadow */}
+                <div className="relative rounded-2xl overflow-hidden border border-zinc-800/50 shadow-[0_20px_100px_-20px_rgba(0,0,0,0.9)]">
+                  <img
+                    src="/assets/overview_light.png"
+                    alt="ScaleStash Dashboard Overview"
+                    className="w-full h-auto block"
+                  />
+                </div>
+
+                {/* Seamless fade overlay - starts from bottom of image */}
+                <div
+                  className="absolute inset-x-0 bottom-0 pointer-events-none"
                   style={{
-                    maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)'
+                    height: '60%',
+                    background: 'linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0.85) 20%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.05) 75%, transparent 100%)',
+                    borderRadius: '0 0 1rem 1rem'
                   }}
-                />
-
-                {/* Gradient overlay for smooth blend into background */}
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/50 to-transparent pointer-events-none"></div>
-
-                {/* Subtle glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 to-transparent pointer-events-none"></div>
+                ></div>
               </div>
+
+              {/* Extended fade beyond container for seamless blend */}
+              <div
+                className="absolute inset-x-0 pointer-events-none"
+                style={{
+                  bottom: '-100px',
+                  height: '200px',
+                  background: 'linear-gradient(to top, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.4) 50%, transparent 100%)'
+                }}
+              ></div>
             </div>
           </div>
         </div>
